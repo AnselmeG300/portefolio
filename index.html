@@ -75,6 +75,21 @@
     footer{background:var(--surface);border-top:1px solid var(--border);text-align:center;padding:24px;color:var(--text-muted);font-size:.85rem}
     footer a{color:var(--accent);text-decoration:none}
     @media(max-width:640px){header h1{font-size:1.5rem}.projects-grid{grid-template-columns:1fr}.skills-grid{grid-template-columns:1fr 1fr}}
+    .modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,.75);z-index:1000;display:flex;align-items:center;justify-content:center;opacity:0;visibility:hidden;transition:opacity .25s,visibility .25s;padding:20px}
+    .modal-overlay.open{opacity:1;visibility:visible}
+    .modal-box{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);max-width:700px;width:100%;max-height:88vh;overflow-y:auto;padding:32px;position:relative;transform:translateY(20px);transition:transform .25s}
+    .modal-overlay.open .modal-box{transform:translateY(0)}
+    .modal-close{position:absolute;top:14px;right:14px;background:none;border:none;color:var(--text-muted);font-size:1.5rem;cursor:pointer;line-height:1;padding:4px 8px;border-radius:4px}
+    .modal-close:hover{color:var(--text);background:var(--surface2)}
+    .modal-title{font-size:1.1rem;font-weight:700;color:var(--text);margin-bottom:22px;padding-right:40px;line-height:1.4}
+    .modal-section{margin-bottom:18px}
+    .modal-section h4{font-size:.78rem;text-transform:uppercase;letter-spacing:.1em;color:var(--accent);margin-bottom:8px;font-weight:600}
+    .modal-section p,.modal-section li{font-size:.875rem;color:var(--text-muted);line-height:1.65}
+    .modal-section ul{padding-left:18px}
+    .modal-section li{margin-bottom:5px}
+    .modal-links{display:flex;flex-wrap:wrap;gap:10px;margin-top:20px;padding-top:16px;border-top:1px solid var(--border)}
+    .btn-details{display:inline-flex;align-items:center;gap:5px;color:var(--accent4);text-decoration:none;font-size:.82rem;font-weight:500;padding:5px 12px;border:1px solid rgba(210,168,255,.3);border-radius:6px;transition:border-color .2s,background .2s;cursor:pointer;background:none;white-space:nowrap}
+    .btn-details:hover{border-color:var(--accent4);background:rgba(210,168,255,.08)}
   </style>
 </head>
 <body>
@@ -171,7 +186,7 @@
     <div class="projects-grid" id="projects-grid">
       <div class="no-results" id="no-results">Aucun projet trouv&#233;.</div>
 
-      <div class="project-card" data-domains="dev cloud iac cicd" data-tags="fastapi python chatgpt openai sqlite aws lambda amplify github-actions terraform ansible edtech ia">
+      <div class="project-card" data-pid="eazyskills-app" data-domains="dev cloud iac cicd" data-tags="fastapi python chatgpt openai sqlite aws lambda amplify github-actions terraform ansible edtech ia">
         <div class="card-cover-placeholder" style="background:linear-gradient(135deg,#0a2e1a,#1a4e3a);">🎓</div>
         <div class="card-body">
           <span class="card-domain domain-dev">Dev · Cloud AWS · CI/CD · IaC</span>
@@ -189,13 +204,13 @@
             <span class="tag tag-red">SQLite</span>
           </div>
           <div class="card-footer">
-            <a class="btn-github" href="https://github.com/AnselmeG300/eazyskills-app" target="_blank"><svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg> Voir le repo</a>
-            <a class="btn-github" href="https://eazyskills.eazytraining.fr" target="_blank" style="border-color:var(--accent2);color:var(--accent2);">🌐 Voir en production</a>
+            <a class="btn-github" href="https://github.com/AnselmeG300/eazyskills-app" target="_blank"><svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg> Repo</a>
+            <a class="btn-github" href="https://eazyskills.eazytraining.fr" target="_blank" style="border-color:var(--accent2);color:var(--accent2);">🌐 Production</a>
           </div>
         </div>
       </div>
 
-      <div class="project-card" data-domains="cloud iac cicd" data-tags="terraform aws github-actions nestjs fastapi nextjs ecs fargate rds efs">
+      <div class="project-card" data-pid="wellmum" data-domains="cloud iac cicd" data-tags="terraform aws github-actions nestjs fastapi nextjs ecs fargate rds efs">
         <img class="card-cover" src="https://raw.githubusercontent.com/AnselmeG300/wellmum/main/architecture%20applicative%20wellmum.drawio.png" alt="Wellmum Architecture" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" /><div class="card-cover-placeholder" style="display:none; background:linear-gradient(135deg,#0a1628,#1a2a4a);">☁️</div>
         <div class="card-body">
           <span class="card-domain domain-cloud">Cloud AWS · IaC · CI/CD</span>
@@ -213,11 +228,11 @@
 <span class="tag tag-red">Next.js</span>
 </div>
           <div class="card-footer">
-            <a class="btn-github" href="https://github.com/AnselmeG300/wellmum" target="_blank"><svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg> Voir le repo</a>
+            <a class="btn-github" href="https://github.com/AnselmeG300/wellmum" target="_blank"><svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg> Repo</a>
           </div>
         </div>
       </div>
-      <div class="project-card" data-domains="cicd devsecops cloud iac" data-tags="java spring-boot jenkins docker terraform sonarcloud aws">
+      <div class="project-card" data-pid="jenkins-springboot" data-domains="cicd devsecops cloud iac" data-tags="java spring-boot jenkins docker terraform sonarcloud aws">
         <img class="card-cover" src="https://raw.githubusercontent.com/AnselmeG300/jenkins-CICD-spring-boot-app/main/CICD%20Jenkins.png" alt="Jenkins CI/CD Spring Boot" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" /><div class="card-cover-placeholder" style="display:none; background:linear-gradient(135deg,#1a2a1a,#162216);">🚀</div>
         <div class="card-body">
           <span class="card-domain domain-cicd">CI/CD · DevSecOps</span>
@@ -234,12 +249,12 @@
 <span class="tag tag-red">MySQL</span>
 </div>
           <div class="card-footer">
-            <a class="btn-github" href="https://github.com/AnselmeG300/jenkins-CICD-spring-boot-app" target="_blank"><svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg> Voir le repo</a>
+            <a class="btn-github" href="https://github.com/AnselmeG300/jenkins-CICD-spring-boot-app" target="_blank"><svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg> Repo</a>
           </div>
         </div>
       </div>
 
-      <div class="project-card" data-domains="cloud" data-tags="aws lambda dynamodb api-gateway ses eventbridge cloudwatch serverless">
+      <div class="project-card" data-pid="notifications-bancaires" data-domains="cloud" data-tags="aws lambda dynamodb api-gateway ses eventbridge cloudwatch serverless">
         <img class="card-cover" src="https://raw.githubusercontent.com/AnselmeG300/notification-transactions-aws-sdk/main/Architecture%20App.png" alt="AWS Notification Architecture" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" /><div class="card-cover-placeholder" style="display:none; background:linear-gradient(135deg,#1a1a0a,#2a2a1a);">📨</div>
         <div class="card-body">
           <span class="card-domain domain-cloud">Cloud AWS · Serverless</span>
@@ -255,12 +270,12 @@
 <span class="tag tag-orange">IAM</span>
 </div>
           <div class="card-footer">
-            <a class="btn-github" href="https://github.com/AnselmeG300/notification-transactions-aws-sdk" target="_blank"><svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg> Voir le repo</a>
+            <a class="btn-github" href="https://github.com/AnselmeG300/notification-transactions-aws-sdk" target="_blank"><svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg> Repo</a>
           </div>
         </div>
       </div>
 
-      <div class="project-card" data-domains="cicd dev" data-tags="python flask jenkins docker heroku">
+      <div class="project-card" data-pid="jenkins-flask" data-domains="cicd dev" data-tags="python flask jenkins docker heroku">
         <div class="card-cover-placeholder" style="background:linear-gradient(135deg,#1a1a2e,#16213e);">🐍</div>
         <div class="card-body">
           <span class="card-domain domain-cicd">CI/CD · Développement</span>
@@ -275,14 +290,14 @@
 <span class="tag tag-blue">Alpine Linux</span>
 </div>
           <div class="card-footer">
-            <a class="btn-github" href="https://github.com/AnselmeG300/jenkins-CICD-flask-app" target="_blank"><svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg> Voir le repo</a>
+            <a class="btn-github" href="https://github.com/AnselmeG300/jenkins-CICD-flask-app" target="_blank"><svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg> Repo</a>
           </div>
         </div>
       </div>
 
       
 
-      <div class="project-card" data-domains="cicd containers" data-tags="gitlab-ci docker nginx static-website">
+      <div class="project-card" data-pid="gitlab-staticwebsite" data-domains="cicd containers" data-tags="gitlab-ci docker nginx static-website">
         <div class="card-cover-placeholder" style="background:linear-gradient(135deg,#1e1a2e,#2e1a3e);">🦊</div>
         <div class="card-body">
           <span class="card-domain domain-cicd">CI/CD · Conteneurs</span>
@@ -295,12 +310,12 @@
 <span class="tag tag-blue">Multi-stage Build</span>
 </div>
           <div class="card-footer">
-            <a class="btn-github" href="https://github.com/AnselmeG300/gitlab-CICD-staticwebsite" target="_blank"><svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg> Voir le repo</a>
+            <a class="btn-github" href="https://github.com/AnselmeG300/gitlab-CICD-staticwebsite" target="_blank"><svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg> Repo</a>
           </div>
         </div>
       </div>
 
-      <div class="project-card" data-domains="cicd containers devsecops" data-tags="fastapi python postgresql docker github-actions">
+      <div class="project-card" data-pid="containers-cicd-challenge" data-domains="cicd containers devsecops" data-tags="fastapi python postgresql docker github-actions">
         <div class="card-cover-placeholder" style="background:linear-gradient(135deg,#0f2027,#203a43,#2c5364);">🧩</div>
         <div class="card-body">
           <span class="card-domain domain-cicd">CI/CD · DevSecOps</span>
@@ -314,14 +329,14 @@
 <span class="tag tag-green">GitHub Actions</span>
 </div>
           <div class="card-footer">
-            <a class="btn-github" href="https://github.com/AnselmeG300/containers-cicd-challenge" target="_blank"><svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg> Voir le repo</a>
+            <a class="btn-github" href="https://github.com/AnselmeG300/containers-cicd-challenge" target="_blank"><svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg> Repo</a>
           </div>
         </div>
       </div>
 
       
 
-      <div class="project-card" data-domains="cloud containers" data-tags="aws ecs fargate docker wordpress rds efs secrets-manager cloudwatch">
+      <div class="project-card" data-pid="ecs-wordpress" data-domains="cloud containers" data-tags="aws ecs fargate docker wordpress rds efs secrets-manager cloudwatch">
         <img class="card-cover" src="https://raw.githubusercontent.com/AnselmeG300/ecs-deploy-app-front-back/main/Architecture%20App.png" alt="ECS WordPress Architecture" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" /><div class="card-cover-placeholder" style="display:none; background:linear-gradient(135deg,#1a0a28,#2a1a4a);">🏗️</div>
         <div class="card-body">
           <span class="card-domain domain-cloud">Cloud AWS · Conteneurs</span>
@@ -336,14 +351,14 @@
 <span class="tag tag-blue">WordPress</span>
 </div>
           <div class="card-footer">
-            <a class="btn-github" href="https://github.com/AnselmeG300/ecs-deploy-app-front-back" target="_blank"><svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg> Voir le repo</a>
+            <a class="btn-github" href="https://github.com/AnselmeG300/ecs-deploy-app-front-back" target="_blank"><svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg> Repo</a>
           </div>
         </div>
       </div>
 
       
 
-      <div class="project-card" data-domains="cloud iac containers" data-tags="aws ecs fargate terraform semaphore ansible mysql cloudwatch secrets-manager">
+      <div class="project-card" data-pid="deploy-semaphore" data-domains="cloud iac containers" data-tags="aws ecs fargate terraform semaphore ansible mysql cloudwatch secrets-manager">
         <div class="card-cover-placeholder" style="background:linear-gradient(135deg,#0a2818,#1a3828);">⚙️</div>
         <div class="card-body">
           <span class="card-domain domain-cloud">Cloud AWS · IaC · DevOps</span>
@@ -359,12 +374,12 @@
 <span class="tag tag-red">MySQL</span>
 </div>
           <div class="card-footer">
-            <a class="btn-github" href="https://github.com/AnselmeG300/deploy-semaphore-ecs" target="_blank"><svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg> Voir le repo</a>
+            <a class="btn-github" href="https://github.com/AnselmeG300/deploy-semaphore-ecs" target="_blank"><svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg> Repo</a>
           </div>
         </div>
       </div>
 
-      <div class="project-card" data-domains="cloud containers" data-tags="aws eks kubernetes web-app">
+      <div class="project-card" data-pid="eks-webapp" data-domains="cloud containers" data-tags="aws eks kubernetes web-app">
         <div class="card-cover-placeholder" style="background:linear-gradient(135deg,#0a1a2e,#1a2a4e);">☸️</div>
         <div class="card-body">
           <span class="card-domain domain-cloud">Cloud AWS · Kubernetes</span>
@@ -375,12 +390,12 @@
 <span class="tag tag-blue">Docker</span>
 </div>
           <div class="card-footer">
-            <a class="btn-github" href="https://github.com/AnselmeG300/eks-web-app" target="_blank"><svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg> Voir le repo</a>
+            <a class="btn-github" href="https://github.com/AnselmeG300/eks-web-app" target="_blank"><svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg> Repo</a>
           </div>
         </div>
       </div>
 
-      <div class="project-card" data-domains="iac cloud" data-tags="terraform aws ec2 import">
+      <div class="project-card" data-pid="terraform-import" data-domains="iac cloud" data-tags="terraform aws ec2 import">
         <div class="card-cover-placeholder" style="background:linear-gradient(135deg,#1a0a3e,#2a1a5e);">📦</div>
         <div class="card-body">
           <span class="card-domain domain-iac">IaC · Cloud AWS</span>
@@ -391,12 +406,12 @@
 <span class="tag tag-orange">AWS VPC</span>
 </div>
           <div class="card-footer">
-            <a class="btn-github" href="https://github.com/AnselmeG300/terraform-import" target="_blank"><svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg> Voir le repo</a>
+            <a class="btn-github" href="https://github.com/AnselmeG300/terraform-import" target="_blank"><svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg> Repo</a>
           </div>
         </div>
       </div>
 
-      <div class="project-card" data-domains="microservices dev containers" data-tags="java spring-boot spring-cloud docker grafana prometheus">
+      <div class="project-card" data-pid="spring-petclinic" data-domains="microservices dev containers" data-tags="java spring-boot spring-cloud docker grafana prometheus">
         <img class="card-cover" src="https://raw.githubusercontent.com/AnselmeG300/spring-petclinic-microservices/main/docs/application-screenshot.png" alt="Spring PetClinic" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" /><div class="card-cover-placeholder" style="display:none; background:linear-gradient(135deg,#0a2e0a,#1a4e1a);">🌸</div>
         <div class="card-body">
           <span class="card-domain domain-microservices">Microservices · Développement</span>
@@ -411,12 +426,12 @@
 <span class="tag tag-red">MySQL</span>
 </div>
           <div class="card-footer">
-            <a class="btn-github" href="https://github.com/AnselmeG300/spring-petclinic-microservices" target="_blank"><svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg> Voir le repo</a>
+            <a class="btn-github" href="https://github.com/AnselmeG300/spring-petclinic-microservices" target="_blank"><svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg> Repo</a>
           </div>
         </div>
       </div>
 
-      <div class="project-card" data-domains="platform" data-tags="yaml github-actions database platform">
+      <div class="project-card" data-pid="eazyskills-catalog" data-domains="platform" data-tags="yaml github-actions database platform">
         <div class="card-cover-placeholder" style="background:linear-gradient(135deg,#1a1a0a,#3a3a1a);">📚</div>
         <div class="card-body">
           <span class="card-domain domain-platform">Plateforme · EdTech</span>
@@ -427,12 +442,12 @@
 <span class="tag tag-orange">Base de données</span>
 </div>
           <div class="card-footer">
-            <a class="btn-github" href="https://github.com/AnselmeG300/eazyskills-catalog" target="_blank"><svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg> Voir le repo</a>
+            <a class="btn-github" href="https://github.com/AnselmeG300/eazyskills-catalog" target="_blank"><svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg> Repo</a>
           </div>
         </div>
       </div>
 
-      <div class="project-card" data-domains="training cloud" data-tags="aws ec2 s3 vpc iam elastic-beanstalk">
+      <div class="project-card" data-pid="aws-module" data-domains="training cloud" data-tags="aws ec2 s3 vpc iam elastic-beanstalk">
         <div class="card-cover-placeholder" style="background:linear-gradient(135deg,#2a1a0a,#4a3a1a);">🎓</div>
         <div class="card-body">
           <span class="card-domain domain-training">Formation · Cloud AWS</span>
@@ -445,12 +460,12 @@
 <span class="tag tag-orange">Elastic Beanstalk</span>
 </div>
           <div class="card-footer">
-            <a class="btn-github" href="https://github.com/AnselmeG300/aws-module" target="_blank"><svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg> Voir le repo</a>
+            <a class="btn-github" href="https://github.com/AnselmeG300/aws-module" target="_blank"><svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg> Repo</a>
           </div>
         </div>
       </div>
 
-      <div class="project-card" data-domains="training containers" data-tags="docker docker-compose php python microservices">
+      <div class="project-card" data-pid="docker-training" data-domains="training containers" data-tags="docker docker-compose php python microservices">
         <div class="card-cover-placeholder" style="background:linear-gradient(135deg,#0a1828,#1a2838);">🐳</div>
         <div class="card-body">
           <span class="card-domain domain-training">Formation · Conteneurs</span>
@@ -463,12 +478,12 @@
 <span class="tag tag-blue">Docker Bridge</span>
 </div>
           <div class="card-footer">
-            <a class="btn-github" href="https://github.com/AnselmeG300/docker-training" target="_blank"><svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg> Voir le repo</a>
+            <a class="btn-github" href="https://github.com/AnselmeG300/docker-training" target="_blank"><svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg> Repo</a>
           </div>
         </div>
       </div>
 
-      <div class="project-card" data-domains="training cicd containers" data-tags="gitlab-ci docker nginx devops">
+      <div class="project-card" data-pid="gitlab-ci-training" data-domains="training cicd containers" data-tags="gitlab-ci docker nginx devops">
         <div class="card-cover-placeholder" style="background:linear-gradient(135deg,#1e0a2e,#2e1a4e);">🦊</div>
         <div class="card-body">
           <span class="card-domain domain-training">Formation · CI/CD</span>
@@ -481,12 +496,12 @@
 <span class="tag tag-blue">Ubuntu</span>
 </div>
           <div class="card-footer">
-            <a class="btn-github" href="https://github.com/AnselmeG300/gitlab-ci-training" target="_blank"><svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg> Voir le repo</a>
+            <a class="btn-github" href="https://github.com/AnselmeG300/gitlab-ci-training" target="_blank"><svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg> Repo</a>
           </div>
         </div>
       </div>
 
-      <div class="project-card" data-domains="training containers" data-tags="kubernetes k8s devops">
+      <div class="project-card" data-pid="kubernetes-training" data-domains="training containers" data-tags="kubernetes k8s devops">
         <div class="card-cover-placeholder" style="background:linear-gradient(135deg,#0a1a3e,#0a3a6e);">☸️</div>
         <div class="card-body">
           <span class="card-domain domain-training">Formation · Kubernetes</span>
@@ -496,12 +511,12 @@
 <span class="tag tag-blue">Docker</span>
 </div>
           <div class="card-footer">
-            <a class="btn-github" href="https://github.com/AnselmeG300/kubernetes-training" target="_blank"><svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg> Voir le repo</a>
+            <a class="btn-github" href="https://github.com/AnselmeG300/kubernetes-training" target="_blank"><svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg> Repo</a>
           </div>
         </div>
       </div>
 
-      <div class="project-card" data-domains="training iac" data-tags="terraform aws devops eazytraining">
+      <div class="project-card" data-pid="terraform-training" data-domains="training iac" data-tags="terraform aws devops eazytraining">
         <div class="card-cover-placeholder" style="background:linear-gradient(135deg,#1a0a4e,#3a1a8e);">🏗️</div>
         <div class="card-body">
           <span class="card-domain domain-training">Formation · IaC</span>
@@ -511,12 +526,12 @@
 <span class="tag tag-orange">AWS Provider</span>
 </div>
           <div class="card-footer">
-            <a class="btn-github" href="https://github.com/AnselmeG300/terraform-training" target="_blank"><svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg> Voir le repo</a>
+            <a class="btn-github" href="https://github.com/AnselmeG300/terraform-training" target="_blank"><svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg> Repo</a>
           </div>
         </div>
       </div>
 
-      <div class="project-card" data-domains="training cicd" data-tags="jenkins ci-cd devops eazytraining">
+      <div class="project-card" data-pid="jenkins-training" data-domains="training cicd" data-tags="jenkins ci-cd devops eazytraining">
         <div class="card-cover-placeholder" style="background:linear-gradient(135deg,#2e0a0a,#5e2a2a);">⚡</div>
         <div class="card-body">
           <span class="card-domain domain-training">Formation · CI/CD</span>
@@ -527,12 +542,12 @@
 <span class="tag tag-orange">AWS</span>
 </div>
           <div class="card-footer">
-            <a class="btn-github" href="https://github.com/AnselmeG300/jenkins-training" target="_blank"><svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg> Voir le repo</a>
+            <a class="btn-github" href="https://github.com/AnselmeG300/jenkins-training" target="_blank"><svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg> Repo</a>
           </div>
         </div>
       </div>
 
-      <div class="project-card" data-domains="training iac" data-tags="ansible devops configuration-management eazytraining">
+      <div class="project-card" data-pid="ansible-training" data-domains="training iac" data-tags="ansible devops configuration-management eazytraining">
         <div class="card-cover-placeholder" style="background:linear-gradient(135deg,#1e0a0a,#3e1a1a);">🔧</div>
         <div class="card-body">
           <span class="card-domain domain-training">Formation · Config Management</span>
@@ -542,12 +557,12 @@
 <span class="tag tag-cyan">Configuration Management</span>
 </div>
           <div class="card-footer">
-            <a class="btn-github" href="https://github.com/AnselmeG300/ansible-training" target="_blank"><svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg> Voir le repo</a>
+            <a class="btn-github" href="https://github.com/AnselmeG300/ansible-training" target="_blank"><svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg> Repo</a>
           </div>
         </div>
       </div>
 
-      <div class="project-card" data-domains="training iac" data-tags="terraform azure certified-associate">
+      <div class="project-card" data-pid="terraform-certified" data-domains="training iac" data-tags="terraform azure certified-associate">
         <div class="card-cover-placeholder" style="background:linear-gradient(135deg,#0a1a4e,#1a3a8e);">📜</div>
         <div class="card-body">
           <span class="card-domain domain-training">Formation · Certification</span>
@@ -557,12 +572,12 @@
 <span class="tag tag-blue">Azure</span>
 </div>
           <div class="card-footer">
-            <a class="btn-github" href="https://github.com/AnselmeG300/terraform-certified-associate" target="_blank"><svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg> Voir le repo</a>
+            <a class="btn-github" href="https://github.com/AnselmeG300/terraform-certified-associate" target="_blank"><svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg> Repo</a>
           </div>
         </div>
       </div>
 
-      <div class="project-card" data-domains="training iac" data-tags="packer devops image-management aws">
+      <div class="project-card" data-pid="packer-training" data-domains="training iac" data-tags="packer devops image-management aws">
         <div class="card-cover-placeholder" style="background:linear-gradient(135deg,#0a2e1a,#1a4e3a);">📸</div>
         <div class="card-body">
           <span class="card-domain domain-training">Formation · IaC</span>
@@ -572,12 +587,12 @@
 <span class="tag tag-orange">AWS AMI</span>
 </div>
           <div class="card-footer">
-            <a class="btn-github" href="https://github.com/AnselmeG300/packer-training" target="_blank"><svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg> Voir le repo</a>
+            <a class="btn-github" href="https://github.com/AnselmeG300/packer-training" target="_blank"><svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg> Repo</a>
           </div>
         </div>
       </div>
 
-      <div class="project-card" data-domains="training cloud" data-tags="aws cloud-practitioner certification">
+      <div class="project-card" data-pid="cloud-practitioner" data-domains="training cloud" data-tags="aws cloud-practitioner certification">
         <div class="card-cover-placeholder" style="background:linear-gradient(135deg,#2a1a0a,#4a3a2a);">☁️</div>
         <div class="card-body">
           <span class="card-domain domain-training">Formation · Certification AWS</span>
@@ -587,12 +602,12 @@
 <span class="tag tag-orange">Cloud Computing</span>
 </div>
           <div class="card-footer">
-            <a class="btn-github" href="https://github.com/AnselmeG300/cloud-practioner-training" target="_blank"><svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg> Voir le repo</a>
+            <a class="btn-github" href="https://github.com/AnselmeG300/cloud-practioner-training" target="_blank"><svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg> Repo</a>
           </div>
         </div>
       </div>
 
-      <div class="project-card" data-domains="training dev" data-tags="odoo erp development">
+      <div class="project-card" data-pid="odoo-dev-training" data-domains="training dev" data-tags="odoo erp development">
         <div class="card-cover-placeholder" style="background:linear-gradient(135deg,#1a2e0a,#3a4e2a);">🏢</div>
         <div class="card-body">
           <span class="card-domain domain-training">Formation · Développement ERP</span>
@@ -603,12 +618,12 @@
 <span class="tag tag-orange">Elastic Beanstalk</span>
 </div>
           <div class="card-footer">
-            <a class="btn-github" href="https://github.com/AnselmeG300/odoo-dev-training" target="_blank"><svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg> Voir le repo</a>
+            <a class="btn-github" href="https://github.com/AnselmeG300/odoo-dev-training" target="_blank"><svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg> Repo</a>
           </div>
         </div>
       </div>
 
-      <div class="project-card" data-domains="training" data-tags="iform-lab training">
+      <div class="project-card" data-pid="iform-lab" data-domains="training" data-tags="iform-lab training">
         <div class="card-cover-placeholder" style="background:linear-gradient(135deg,#0a2a2e,#1a4a4e);">🔬</div>
         <div class="card-body">
           <span class="card-domain domain-training">Formation · Lab</span>
@@ -619,12 +634,12 @@
 <span class="tag tag-green">DevOps</span>
 </div>
           <div class="card-footer">
-            <a class="btn-github" href="https://github.com/AnselmeG300/iform-lab-training" target="_blank"><svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg> Voir le repo</a>
+            <a class="btn-github" href="https://github.com/AnselmeG300/iform-lab-training" target="_blank"><svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg> Repo</a>
           </div>
         </div>
       </div>
 
-      <div class="project-card" data-domains="dev training" data-tags="javascript css html frontend">
+      <div class="project-card" data-pid="la-maison-jungle" data-domains="dev training" data-tags="javascript css html frontend">
         <div class="card-cover-placeholder" style="background:linear-gradient(135deg,#1a2e0a,#2a4e1a);">🌿</div>
         <div class="card-body">
           <span class="card-domain domain-dev">Développement Web · Frontend</span>
@@ -635,7 +650,7 @@
 <span class="tag tag-red">JavaScript</span>
 </div>
           <div class="card-footer">
-            <a class="btn-github" href="https://github.com/AnselmeG300/la-maison-jungle" target="_blank"><svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg> Voir le repo</a>
+            <a class="btn-github" href="https://github.com/AnselmeG300/la-maison-jungle" target="_blank"><svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg> Repo</a>
           </div>
         </div>
       </div>
@@ -676,29 +691,99 @@
 <footer>
   <p>&#169; 2026 Anselme TCHASSEM (AnselmeG300) &mdash; Portfolio deploy&#233; sur <a href="https://pages.github.com" target="_blank">GitHub Pages</a></p>
 </footer>
+<div class="modal-overlay" id="modal-overlay" onclick="closeModal(event)">
+  <div class="modal-box">
+    <button class="modal-close" onclick="closeModalDirect()">&times;</button>
+    <div class="modal-title" id="modal-title"></div>
+    <div class="modal-section"><h4>&#128203; Contexte</h4><p id="modal-contexte"></p></div>
+    <div class="modal-section"><h4>&#127919; R&ocirc;le</h4><ul id="modal-role"></ul></div>
+    <div class="modal-section"><h4>&#9989; R&eacute;sultats</h4><ul id="modal-resultats"></ul></div>
+    <div class="modal-links" id="modal-links"></div>
+  </div>
+</div>
 <script>
-  let currentFilter='all';
-  function setFilter(f,btn){
-    currentFilter=f;
-    document.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active'));
-    btn.classList.add('active');
-    filterProjects();
-  }
-  function filterProjects(){
-    const q=document.getElementById('search-input').value.toLowerCase();
-    const cards=document.querySelectorAll('.project-card');
-    let visible=0;
-    cards.forEach(card=>{
-      const domains=card.dataset.domains||'';
-      const tags=card.dataset.tags||'';
-      const text=(card.querySelector('h3')?.textContent||'')+(card.querySelector('.card-desc')?.textContent||'');
-      const domainMatch=currentFilter==='all'||domains.includes(currentFilter);
-      const searchMatch=!q||text.toLowerCase().includes(q)||tags.includes(q);
-      if(domainMatch&&searchMatch){card.classList.remove('hidden');visible++;}
-      else{card.classList.add('hidden');}
-    });
-    document.getElementById('no-results').style.display=visible===0?'block':'none';
-  }
+const GH_SVG='<svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>';
+const PROJECTS={
+'eazykills-app':{title:"EazySkills — Plateforme EdTech IA",contexte:"D\u00e9veloppement d'une application d'EdTech publique permettant de recommander automatiquement des parcours de formation gr\u00e2ce \u00e0 l'IA (ChatGPT), avec une architecture serverless optimis\u00e9e pour les co\u00fbts.",role:["D\u00e9veloppement du backend en FastAPI avec int\u00e9gration de l'API ChatGPT pour la recommandation de parcours","Conception d'une base SQLite embarqu\u00e9e, mise \u00e0 jour par pipeline et red\u00e9ploy\u00e9e sur AWS Lambda","Validation technique du frontend d\u00e9velopp\u00e9 par l'\u00e9quipe front (2 personnes) et d\u00e9ploiement sur AWS Amplify","Organisation du projet avec GitHub Projects & Issues","Automatisation des d\u00e9ploiements avec GitHub Actions, Terraform, Terraform Cloud et Ansible"],resultats:["Recommandation instantan\u00e9e de parcours pour tout utilisateur sans intervention humaine","Autonomie des \u00e9quipes commerciales dans l'orientation des prospects sur le plan Tech","R\u00e9duction des co\u00fbts d'infrastructure gr\u00e2ce \u00e0 une architecture serverless avec base embarqu\u00e9e","D\u00e9ploiements reproductibles et simplification des mises \u00e0 jour","Application en production : eazyskills.eazytraining.fr"],repo:"https://github.com/AnselmeG300/eazyskills-app",prod:"https://eazyskills.eazytraining.fr"},
+'eazyskills-app':{title:"EazySkills — Plateforme EdTech IA",contexte:"D\u00e9veloppement d'une application d'EdTech publique permettant de recommander automatiquement des parcours de formation gr\u00e2ce \u00e0 l'IA (ChatGPT), avec une architecture serverless optimis\u00e9e pour les co\u00fbts.",role:["D\u00e9veloppement du backend en FastAPI avec int\u00e9gration de l'API ChatGPT pour la recommandation de parcours","Conception d'une base SQLite embarqu\u00e9e, mise \u00e0 jour par pipeline et red\u00e9ploy\u00e9e sur AWS Lambda","Validation technique du frontend d\u00e9velopp\u00e9 par l'\u00e9quipe front (2 personnes) et d\u00e9ploiement sur AWS Amplify","Organisation du projet avec GitHub Projects & Issues","Automatisation des d\u00e9ploiements avec GitHub Actions, Terraform, Terraform Cloud et Ansible"],resultats:["Recommandation instantan\u00e9e de parcours pour tout utilisateur sans intervention humaine","Autonomie des \u00e9quipes commerciales dans l'orientation des prospects sur le plan Tech","R\u00e9duction des co\u00fbts d'infrastructure gr\u00e2ce \u00e0 une architecture serverless avec base embarqu\u00e9e","D\u00e9ploiements reproductibles et simplification des mises \u00e0 jour","Application en production : eazyskills.eazytraining.fr"],repo:"https://github.com/AnselmeG300/eazyskills-app",prod:"https://eazyskills.eazytraining.fr"},
+'wellmum':{title:"Wellmum — Infrastructure AWS Automatis\u00e9e",contexte:"Projet client r\u00e9el : mise en place d'une infrastructure AWS compl\u00e8te et automatis\u00e9e pour une application SaaS multi-services (NestJS/FastAPI/Next.js). Environnements dev et prod distincts avec pipeline CI/CD complet.",role:["Conception et provisionnement de l'infrastructure AWS avec Terraform Cloud (modules r\u00e9utilisables)","D\u00e9ploiement multi-services sur ECS Fargate : API NestJS, backend FastAPI, frontend Next.js via Amplify","Configuration ALB, RDS PostgreSQL avec r\u00e9plication, EFS, KMS, WAF et Secrets Manager","Mise en place du pipeline CI/CD GitHub Actions pour d\u00e9ploiement automatique sur dev et prod","Gestion des certificats SSL, DNS (Route 53) et s\u00e9curisation r\u00e9seau (VPC, Security Groups)"],resultats:["Infrastructure multi-environnements (dev/prod) enti\u00e8rement automatis\u00e9e et reproductible","D\u00e9ploiements continus sans interruption de service (zero-downtime)","Architecture haute disponibilit\u00e9 avec auto-scaling et monitoring CloudWatch","S\u00e9curit\u00e9 renforc\u00e9e : chiffrement KMS, WAF, secrets manag\u00e9s"],repo:"https://github.com/AnselmeG300/wellmum"},
+'jenkins-springboot':{title:"Jenkins CI/CD — Spring Boot (PayMyBuddy)",contexte:"Mise en place d'un pipeline CI/CD complet pour une application Java Spring Boot (PayMyBuddy) avec analyse qualit\u00e9 du code, conteneurisation et d\u00e9ploiement automatis\u00e9 sur AWS en multi-environnements.",role:["Conception et impl\u00e9mentation du pipeline Jenkins (Jenkinsfile) avec \u00e9tapes build, test, qualit\u00e9, d\u00e9ploiement","Int\u00e9gration SonarCloud pour l'analyse statique du code et Quality Gates","Conteneurisation de l'application avec Docker et push vers un registry","Provisionnement de l'infrastructure AWS EC2 avec Terraform","Configuration Ansible pour le d\u00e9ploiement automatis\u00e9 sur staging et production"],resultats:["Pipeline CI/CD enti\u00e8rement automatis\u00e9 : du commit au d\u00e9ploiement en production","D\u00e9tection pr\u00e9coce des bugs et violations qualit\u00e9 via SonarCloud","D\u00e9ploiement reproductible sur AWS en multi-environnements (staging/prod)","R\u00e9duction du temps de mise en production de plusieurs heures \u00e0 quelques minutes"],repo:"https://github.com/AnselmeG300/jenkins-CICD-spring-boot-app"},
+'notifications-bancaires':{title:"Pipeline Notifications Bancaires (AWS SDK)",contexte:"Cr\u00e9ation d'un pipeline serverless temps r\u00e9el pour le traitement et l'envoi de notifications bancaires. Architecture event-driven enti\u00e8rement manag\u00e9e sur AWS, sans serveur \u00e0 g\u00e9rer.",role:["Conception de l'architecture serverless event-driven sur AWS","D\u00e9veloppement des fonctions Lambda Python pour le traitement des transactions","Configuration DynamoDB pour le stockage des transactions et historiques","Mise en place EventBridge pour l'orchestration des \u00e9v\u00e9nements","Configuration SES pour l'envoi d'emails et API Gateway pour l'exposition REST","S\u00e9curisation avec IAM Policies et monitoring CloudWatch"],resultats:["Traitement temps r\u00e9el des transactions bancaires sans infrastructure \u00e0 g\u00e9rer","Architecture auto-scalable : 0 \u00e0 N transactions/seconde sans configuration","Co\u00fbts r\u00e9duits au strict n\u00e9cessaire (pay-per-use)","Monitoring et alerting complets via CloudWatch"],repo:"https://github.com/AnselmeG300/notification-transactions-aws-sdk"},
+'jenkins-flask':{title:"Jenkins CI/CD — Flask App",contexte:"Mise en place d'un pipeline CI/CD complet pour une application Python Flask conteneuris\u00e9e. Objectif : automatiser le build, les tests et le d\u00e9ploiement d'une API REST.",role:["D\u00e9veloppement de l'application Flask avec Gunicorn comme serveur WSGI","Cr\u00e9ation d'une image Docker optimis\u00e9e bas\u00e9e sur Alpine Linux","Configuration du pipeline Jenkins avec \u00e9tapes de build, test et d\u00e9ploiement","D\u00e9ploiement automatique sur Heroku via le pipeline"],resultats:["Pipeline CI/CD fonctionnel du commit au d\u00e9ploiement Heroku","Image Docker l\u00e9g\u00e8re bas\u00e9e Alpine (r\u00e9duction de taille significative)","D\u00e9ploiement automatis\u00e9 \u00e0 chaque push sur la branche principale"],repo:"https://github.com/AnselmeG300/jenkins-CICD-flask-app"},
+'gitlab-staticwebsite':{title:"GitLab CI/CD — Static Website",contexte:"Automatisation du d\u00e9ploiement d'un site web statique via GitLab CI/CD avec une image Docker optimis\u00e9e en multi-stage build.",role:["Configuration du pipeline GitLab CI (.gitlab-ci.yml) pour le build et d\u00e9ploiement","Cr\u00e9ation d'une image Docker multi-stage avec Nginx Alpine pour un footprint minimal","Mise en place des stages : build, test, deploy"],resultats:["D\u00e9ploiement automatis\u00e9 \u00e0 chaque commit","Image Docker ultra-l\u00e9g\u00e8re gr\u00e2ce au multi-stage build avec Alpine","Pipeline CI/CD reproductible et maintenable"],repo:"https://github.com/AnselmeG300/gitlab-CICD-staticwebsite"},
+'containers-cicd-challenge':{title:"Containers & CI/CD Challenge (FastAPI)",contexte:"Challenge technique Scalyz : d\u00e9veloppement d'une API FastAPI s\u00e9curis\u00e9e avec PostgreSQL, conteneuris\u00e9e avec Docker Compose et un pipeline GitHub Actions complet incluant tests et s\u00e9curit\u00e9.",role:["D\u00e9veloppement de l'API FastAPI avec authentification JWT et endpoints s\u00e9curis\u00e9s","Configuration PostgreSQL et Docker Compose pour l'environnement multi-conteneurs","Mise en place du pipeline GitHub Actions : tests unitaires, build Docker, scan de s\u00e9curit\u00e9","Gestion s\u00e9curis\u00e9e des secrets via GitHub Secrets"],resultats:["API REST s\u00e9curis\u00e9e avec authentification fonctionnelle","Pipeline CI/CD complet avec tests automatis\u00e9s et contr\u00f4les de s\u00e9curit\u00e9","Infrastructure Docker Compose reproductible en local et en CI"],repo:"https://github.com/AnselmeG300/containers-cicd-challenge"},
+'ecs-wordpress':{title:"ECS Deploy — WordPress Front & Back",contexte:"D\u00e9ploiement d'un WordPress en production sur AWS ECS Fargate avec une architecture s\u00e9curis\u00e9e et haute disponibilit\u00e9 incluant RDS, EFS et gestion des secrets.",role:["Conception et d\u00e9ploiement de l'architecture AWS : VPC (subnets publics/priv\u00e9s), ALB, ECS Fargate","Configuration RDS MySQL avec RDS Proxy pour la gestion des connexions","Mise en place EFS pour le stockage persistant des m\u00e9dias WordPress","Int\u00e9gration Secrets Manager pour la gestion des credentials","Configuration CloudWatch pour logs et monitoring"],resultats:["WordPress en production sur infrastructure AWS s\u00e9curis\u00e9e et hautement disponible","S\u00e9paration r\u00e9seau public/priv\u00e9 avec s\u00e9curit\u00e9 renforc\u00e9e","Stockage persistant des m\u00e9dias via EFS partag\u00e9 entre instances","Gestion des secrets externalis\u00e9e (z\u00e9ro credential en dur)"],repo:"https://github.com/AnselmeG300/ecs-deploy-app-front-back"},
+'deploy-semaphore':{title:"Deploy Semaphore sur AWS ECS",contexte:"D\u00e9ploiement de Semaphore UI (orchestrateur Ansible open-source) sur AWS ECS Fargate avec Terraform pour cr\u00e9er une plateforme centralis\u00e9e d'automatisation DevOps hautement disponible.",role:["Provisionnement de l'infrastructure avec Terraform : VPC, ECS Fargate, ALB, Auto Scaling","Configuration du stockage persistant EBS pour la base Semaphore","Int\u00e9gration AWS Cloud Map pour la d\u00e9couverte de services","Gestion des secrets MySQL via Secrets Manager","Mise en place CloudWatch pour logs et alertes"],resultats:["Plateforme Semaphore en production sur AWS ECS avec haute disponibilit\u00e9","Infrastructure as Code enti\u00e8rement reproductible avec Terraform","Auto-scaling selon la charge et r\u00e9cup\u00e9ration automatique en cas de d\u00e9faillance","Centralisation de l'orchestration Ansible pour toute l'\u00e9quipe DevOps"],repo:"https://github.com/AnselmeG300/deploy-semaphore-ecs"},
+'eks-webapp':{title:"EKS Web App",contexte:"D\u00e9ploiement d'une application web sur Amazon EKS (Elastic Kubernetes Service), d\u00e9montrant la mise en place et la gestion d'un cluster Kubernetes manag\u00e9 sur AWS.",role:["Cr\u00e9ation et configuration du cluster EKS sur AWS","D\u00e9ploiement de l'application web avec Deployments, Services et Ingress Kubernetes","Configuration du load balancer AWS pour l'exposition externe","Gestion des namespaces, RBAC et network policies"],resultats:["Application web en production sur Kubernetes manag\u00e9 AWS EKS","Orchestration automatique avec self-healing et rolling updates","Scalabilit\u00e9 horizontale configur\u00e9e"],repo:"https://github.com/AnselmeG300/eks-web-app"},
+'terraform-import':{title:"Terraform Import — Migration Infrastructure",contexte:"\u00c9tude de cas pratique sur l'importation d'une infrastructure AWS existante (EC2, VPC) dans Terraform pour permettre sa gestion as-code sans recr\u00e9ation.",role:["Identification et inventaire des ressources AWS existantes \u00e0 importer","\u00c9criture des blocs de configuration Terraform correspondants","Ex\u00e9cution de la commande terraform import pour chaque ressource","Validation et ajustement de la configuration pour correspondre \u00e0 l'\u00e9tat r\u00e9el"],resultats:["Infrastructure existante sous contr\u00f4le Terraform sans interruption de service","Documentation de la proc\u00e9dure d'import pour les \u00e9quipes","Transition vers le paradigme IaC pour une infrastructure legacy"],repo:"https://github.com/AnselmeG300/terraform-import"},
+'spring-petclinic':{title:"Spring PetClinic Microservices",contexte:"D\u00e9ploiement et configuration de l'application PetClinic distribu\u00e9e en microservices avec Spring Cloud, incluant patterns avanc\u00e9s (Service Discovery, Circuit Breaker) et monitoring.",role:["Configuration de Spring Cloud : Eureka (Service Discovery), API Gateway, Config Server","Impl\u00e9mentation du Circuit Breaker avec Resilience4j","Mise en place du monitoring avec Grafana et Prometheus","Orchestration des services avec Docker Compose"],resultats:["Architecture microservices op\u00e9rationnelle avec tous les patterns Cloud Native","R\u00e9silience assur\u00e9e par Circuit Breaker (Resilience4j)","Observabilit\u00e9 compl\u00e8te via dashboards Grafana/Prometheus"],repo:"https://github.com/AnselmeG300/spring-petclinic-microservices"},
+'eazyskills-catalog':{title:"EazySkills Catalog — Donn\u00e9es Plateforme",contexte:"Source de v\u00e9rit\u00e9 centralis\u00e9e pour la plateforme EazySkills : gestion des cours, parcours et bootcamps en YAML avec d\u00e9ploiement automatique en base via GitHub Actions.",role:["Conception du sch\u00e9ma YAML pour les entit\u00e9s (cours, parcours, bootcamps)","Mise en place du pipeline GitHub Actions pour validation et d\u00e9ploiement automatique"],resultats:["Catalogue de formations versionn\u00e9 et auditable via Git","D\u00e9ploiement automatique en base \u00e0 chaque merge","Collaboration facilit\u00e9e pour les \u00e9quipes p\u00e9dagogiques"],repo:"https://github.com/AnselmeG300/eazyskills-catalog"},
+'aws-module':{title:"Module AWS — Formation 5 Jours",contexte:"Conception et animation d'un curriculum p\u00e9dagogique AWS intensif (5 jours) couvrant les services fondamentaux : IAM, VPC, EC2, S3, Elastic Beanstalk avec labs pratiques hands-on.",role:["Conception du curriculum et des objectifs p\u00e9dagogiques par jour","D\u00e9veloppement des labs hands-on avec objectifs p\u00e9dagogiques et livrables","Animation des sessions de formation"],resultats:["Curriculum structur\u00e9 sur 5 jours avec progression p\u00e9dagogique claire","Labs pratiques reproductibles avec objectifs et livrables d\u00e9finis"],repo:"https://github.com/AnselmeG300/aws-module"},
+'docker-training':{title:"Docker Training — Student List App",contexte:"Formation pratique \u00e0 Docker et Docker Compose via une application multi-conteneurs r\u00e9elle : frontend PHP/Apache + API Python.",role:["Conception du TP avec application Student List (frontend PHP/Apache + API Python)","Configuration Docker Compose avec r\u00e9seau bridge, volumes et variables d'environnement","Documentation et animation de la formation"],resultats:["Formation Docker compl\u00e8te sur un cas r\u00e9el","Ma\u00eetrise des concepts fondamentaux : r\u00e9seaux, volumes, d\u00e9pendances de services"],repo:"https://github.com/AnselmeG300/docker-training"},
+'gitlab-ci-training':{title:"GitLab CI Training",contexte:"Formation GitLab CI/CD avec focus sur les pipelines automatis\u00e9s, Docker multi-stage builds et d\u00e9ploiement web conteneuris\u00e9.",role:["Conception des exercices pratiques GitLab CI/CD","D\u00e9monstration Docker multi-stage avec Nginx Alpine","Animation de la formation CI/CD"],resultats:["Ma\u00eetrise de GitLab CI/CD via labs pratiques","Compr\u00e9hension des pipelines automatis\u00e9s et du multi-stage build Docker"],repo:"https://github.com/AnselmeG300/gitlab-ci-training"},
+'kubernetes-training':{title:"Kubernetes Training",contexte:"Formation Kubernetes pour DevOps couvrant les concepts fondamentaux et la pratique via TPs sur environnement r\u00e9el.",role:["Conception du curriculum Kubernetes : pods, services, deployments, volumes","D\u00e9veloppement de TPs progressifs sur orchestration de conteneurs","Animation des sessions de formation"],resultats:["Formation Kubernetes compl\u00e8te couvrant les workloads essentiels","TPs pratiques permettant une mise en pratique imm\u00e9diate"],repo:"https://github.com/AnselmeG300/kubernetes-training"},
+'terraform-training':{title:"Terraform Training — Bases pour DevOps",contexte:"Formation Terraform (EAZYTraining) version v1.9.4 avec AWS Provider v5.65, couvrant les fondamentaux IaC pour DevOps.",role:["Conception et animation de la formation Terraform pour EAZYTraining","Labs pratiques : providers, resources, variables, outputs, modules, state management"],resultats:["Ma\u00eetrise des fondamentaux Terraform avec AWS Provider","Capacit\u00e9 \u00e0 provisionner des infrastructures AWS as-code"],repo:"https://github.com/AnselmeG300/terraform-training"},
+'jenkins-training':{title:"Jenkins Training — CI/CD pour DevOps",contexte:"Formation Jenkins CI/CD (EAZYTraining) couvrant Pipeline as Code, Jenkinsfile, d\u00e9clencheurs, agents, credentials et int\u00e9grations Docker et AWS.",role:["Conception et animation de la formation Jenkins pour EAZYTraining","Labs sur Pipeline as Code, agents Docker, int\u00e9gration AWS"],resultats:["Ma\u00eetrise de Jenkins CI/CD et du Jenkinsfile d\u00e9claratif","Capacit\u00e9 \u00e0 concevoir des pipelines complets de build et d\u00e9ploiement"],repo:"https://github.com/AnselmeG300/jenkins-training"},
+'ansible-training':{title:"Ansible Training — pour DevOps",contexte:"Formation Ansible pour DevOps (EAZYTraining) couvrant la gestion de configuration et le d\u00e9ploiement automatis\u00e9.",role:["Conception et animation de la formation Ansible","Labs pratiques : playbooks, r\u00f4les, inventaires, handlers, templates"],resultats:["Ma\u00eetrise d'Ansible pour la gestion de configuration et le d\u00e9ploiement automatis\u00e9","Application sur des cas r\u00e9els d'infrastructure"],repo:"https://github.com/AnselmeG300/ansible-training"},
+'terraform-certified':{title:"Terraform Certified Associate",contexte:"Pr\u00e9paration \u00e0 la certification Terraform Associate avec labs pratiques sur Azure, couvrant toutes les comp\u00e9tences requises pour l'examen.",role:["\u00c9tude des domaines de certification Terraform Associate","Labs pratiques : modules, workspaces, state management, import, provisioners"],resultats:["Pr\u00e9paration compl\u00e8te \u00e0 la certification HashiCorp Terraform Associate","Ma\u00eetrise des bonnes pratiques IaC avec Terraform sur Azure"],repo:"https://github.com/AnselmeG300/terraform-certified-associate"},
+'packer-training':{title:"Packer Training",contexte:"Formation HashiCorp Packer pour la cr\u00e9ation et gestion d'images machines (AMI AWS) reproductibles et automatis\u00e9es.",role:["Conception des labs Packer pour la cr\u00e9ation d'AMI AWS","Configuration de templates HCL2 avec builders et provisioners"],resultats:["Ma\u00eetrise de Packer pour des images immuables et reproductibles","AMI AWS g\u00e9n\u00e9r\u00e9es automatiquement avec configurations standardis\u00e9es"],repo:"https://github.com/AnselmeG300/packer-training"},
+'cloud-practitioner':{title:"AWS Cloud Practitioner Training",contexte:"Pr\u00e9paration \u00e0 la certification AWS Cloud Practitioner couvrant les fondamentaux du cloud, les services de base AWS, la tarification et la s\u00e9curit\u00e9.",role:["\u00c9tude des domaines : fondamentaux cloud, services AWS, tarification, s\u00e9curit\u00e9, conformit\u00e9","Labs pratiques sur les services AWS fondamentaux"],resultats:["Ma\u00eetrise des concepts fondamentaux AWS Cloud","Pr\u00e9paration compl\u00e8te \u00e0 la certification Cloud Practitioner"],repo:"https://github.com/AnselmeG300/cloud-practioner-training"},
+'odoo-dev-training':{title:"Odoo Dev Training",contexte:"Formation au d\u00e9veloppement Odoo : cr\u00e9ation de modules ERP, personnalisation de l'interface et d\u00e9ploiement sur AWS Elastic Beanstalk.",role:["D\u00e9veloppement de modules Odoo personnalis\u00e9s","D\u00e9ploiement de l'application Odoo sur AWS Elastic Beanstalk"],resultats:["Capacit\u00e9 \u00e0 d\u00e9velopper et personnaliser des modules Odoo ERP","D\u00e9ploiement cloud sur AWS Elastic Beanstalk"],repo:"https://github.com/AnselmeG300/odoo-dev-training"},
+'iform-lab':{title:"IForm Lab Training",contexte:"Environnement de TPs pratiques IForm Lab sur technologies cloud et DevOps dans un cadre d'apprentissage structur\u00e9.",role:["Conception des TPs et exercices pratiques cloud/DevOps","Animation des sessions de formation dans l'environnement IForm Lab"],resultats:["Environnement d'apprentissage structur\u00e9 pour les technologies cloud et DevOps","TPs pratiques couvrant diff\u00e9rentes technologies du p\u00e9rim\u00e8tre"],repo:"https://github.com/AnselmeG300/iform-lab-training"},
+'la-maison-jungle':{title:"La Maison Jungle",contexte:"Projet web frontend responsive : site vitrine pour une boutique de plantes avec HTML, CSS et JavaScript vanilla.",role:["Conception et d\u00e9veloppement du site vitrine responsive","Int\u00e9gration des \u00e9l\u00e9ments UI : catalogue produits, navigation, interactions"],resultats:["Site vitrine responsive fonctionnel","Ma\u00eetrise des fondamentaux HTML/CSS/JavaScript"],repo:"https://github.com/AnselmeG300/la-maison-jungle"}
+};
+function openModal(pid){
+  const d=PROJECTS[pid];if(!d)return;
+  document.getElementById('modal-title').textContent=d.title;
+  document.getElementById('modal-contexte').textContent=d.contexte;
+  document.getElementById('modal-role').innerHTML=d.role.map(r=>`<li>${r}</li>`).join('');
+  document.getElementById('modal-resultats').innerHTML=d.resultats.map(r=>`<li>${r}</li>`).join('');
+  let h=`<a class="btn-github" href="${d.repo}" target="_blank">${GH_SVG} Repo</a>`;
+  if(d.prod)h+=`<a class="btn-github" href="${d.prod}" target="_blank" style="border-color:var(--accent2);color:var(--accent2);">&#127760; Production</a>`;
+  document.getElementById('modal-links').innerHTML=h;
+  document.getElementById('modal-overlay').classList.add('open');
+  document.body.style.overflow='hidden';
+}
+function closeModalDirect(){
+  document.getElementById('modal-overlay').classList.remove('open');
+  document.body.style.overflow='';
+}
+function closeModal(e){if(e&&e.target!==e.currentTarget)return;closeModalDirect();}
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeModalDirect();});
+document.addEventListener('DOMContentLoaded',()=>{
+  document.querySelectorAll('.project-card[data-pid]').forEach(card=>{
+    const footer=card.querySelector('.card-footer');
+    if(footer){
+      const btn=document.createElement('button');
+      btn.className='btn-details';
+      btn.innerHTML='<svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg> D\u00e9tails';
+      btn.onclick=()=>openModal(card.dataset.pid);
+      footer.appendChild(btn);
+    }
+  });
+});
+let currentFilter='all';
+function setFilter(f,btn){
+  currentFilter=f;
+  document.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  filterProjects();
+}
+function filterProjects(){
+  const q=document.getElementById('search-input').value.toLowerCase();
+  const cards=document.querySelectorAll('.project-card');
+  let visible=0;
+  cards.forEach(card=>{
+    const domains=card.dataset.domains||'';
+    const tags=card.dataset.tags||'';
+    const text=(card.querySelector('h3')?.textContent||'')+(card.querySelector('.card-desc')?.textContent||'');
+    const domainMatch=currentFilter==='all'||domains.includes(currentFilter);
+    const searchMatch=!q||text.toLowerCase().includes(q)||tags.includes(q);
+    if(domainMatch&&searchMatch){card.classList.remove('hidden');visible++;}
+    else{card.classList.add('hidden');}
+  });
+  document.getElementById('no-results').style.display=visible===0?'block':'none';
+}
 </script>
 </body>
 </html>
