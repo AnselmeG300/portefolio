@@ -91,6 +91,17 @@
     .modal-links{display:flex;flex-wrap:wrap;gap:10px;margin-top:20px;padding-top:16px;border-top:1px solid var(--border)}
     .btn-details{display:inline-flex;align-items:center;gap:5px;color:var(--accent4);text-decoration:none;font-size:.82rem;font-weight:500;padding:5px 12px;border:1px solid rgba(210,168,255,.3);border-radius:6px;transition:border-color .2s,background .2s;cursor:pointer;background:none;white-space:nowrap;line-height:1.4;box-sizing:border-box}
     .btn-details:hover{border-color:var(--accent4);background:rgba(210,168,255,.08)}
+    .cert-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:20px}
+    .cert-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;display:flex;flex-direction:column;transition:border-color .2s,transform .2s,box-shadow .2s;text-decoration:none;color:inherit}
+    .cert-card:hover{border-color:var(--accent);transform:translateY(-3px);box-shadow:0 8px 24px rgba(88,166,255,.12)}
+    .cert-badge{height:140px;display:flex;align-items:center;justify-content:center;font-size:3.5rem;position:relative}
+    .cert-body{padding:14px;flex:1;display:flex;flex-direction:column;gap:6px}
+    .cert-name{font-size:.88rem;font-weight:700;color:var(--text);line-height:1.3}
+    .cert-issuer{font-size:.75rem;color:var(--text-muted)}
+    .cert-status{display:inline-block;padding:2px 9px;border-radius:12px;font-size:.72rem;font-weight:600;margin-top:4px;width:fit-content}
+    .cert-status.obtained{background:rgba(63,185,80,.15);color:var(--accent2);border:1px solid rgba(63,185,80,.3)}
+    .cert-status.progress{background:rgba(255,166,87,.15);color:var(--accent5);border:1px solid rgba(255,166,87,.3)}
+    .cert-verify{display:inline-flex;align-items:center;gap:5px;font-size:.75rem;color:var(--accent);margin-top:auto;padding-top:8px;border-top:1px solid var(--border)}
   </style>
 </head>
 <body>
@@ -110,6 +121,7 @@
 </header>
 <nav>
   <a href="#skills">Comp&#233;tences</a>
+  <a href="#certifications">Certifications</a>
   <a href="#projects">Projets</a>
   <a href="#mission">Mission</a>
   <a href="#contact">Contact</a>
@@ -125,7 +137,7 @@
 <hr class="section-divider" />
 <section id="skills">
   <div class="container">
-    <h2><span>&#128295;</span> Comp&#233;tences Techniques</h2>
+    <h2><span>&#128295;</span> Comp&#233;tences</h2>
     <div class="skills-grid">
       <div class="skill-card">
         <h3>&#9729; Cloud AWS</h3>
@@ -165,6 +177,142 @@
       </div>
       
       
+    </div>
+  </div>
+</section>
+<hr class="section-divider" />
+<section id="certifications">
+  <div class="container">
+    <h2><span>&#127941;</span> Certifications</h2>
+    <div class="cert-grid">
+
+      <a class="cert-card" href="https://www.credly.com/badges/f6e7f0cb-0ce7-4ad1-830b-cf5be57bbef3" target="_blank">
+        <div class="cert-badge" style="background:linear-gradient(135deg,#1a232f,#232f3e);">
+          <svg viewBox="0 0 80 80" width="80" height="80">
+            <polygon points="40,4 75,22 75,58 40,76 5,58 5,22" fill="#232f3e" stroke="#ff9900" stroke-width="3"/>
+            <text x="40" y="32" text-anchor="middle" font-size="9" fill="#ff9900" font-family="Arial" font-weight="bold">aws</text>
+            <text x="40" y="43" text-anchor="middle" font-size="7" fill="#ffffff" font-family="Arial" font-weight="bold">certified</text>
+            <text x="40" y="56" text-anchor="middle" font-size="6" fill="#ff9900" font-family="Arial" font-weight="bold">Cloud</text>
+            <text x="40" y="64" text-anchor="middle" font-size="5.5" fill="#ffffff" font-family="Arial">Practitioner</text>
+          </svg>
+        </div>
+        <div class="cert-body">
+          <div class="cert-name">AWS Certified Cloud Practitioner</div>
+          <div class="cert-issuer">Amazon Web Services</div>
+          <div class="cert-status obtained">&#10003; Obtenu</div>
+          <div class="cert-verify">&#128279; V&eacute;rifier sur Credly</div>
+        </div>
+      </a>
+
+      <a class="cert-card" href="https://www.credly.com/badges/012d08c1-98bf-4cb7-9ca7-701c32c1ff35" target="_blank">
+        <div class="cert-badge" style="background:linear-gradient(135deg,#1e1a3e,#292961);">
+          <svg viewBox="0 0 80 80" width="80" height="80">
+            <rect x="8" y="24" width="64" height="50" rx="6" fill="#292961"/>
+            <rect x="8" y="24" width="64" height="22" rx="6" fill="#3d2c8d"/>
+            <rect x="24" y="6" width="32" height="16" rx="8" fill="white"/>
+            <text x="40" y="17" text-anchor="middle" font-size="7" fill="#292961" font-family="Arial" font-weight="bold">Associate</text>
+            <text x="40" y="42" text-anchor="middle" font-size="9" fill="white" font-family="Arial" font-weight="bold">GitLab</text>
+            <text x="40" y="57" text-anchor="middle" font-size="8" fill="#fc6d26" font-family="Arial" font-weight="bold">CI/CD</text>
+            <text x="40" y="68" text-anchor="middle" font-size="7" fill="white" font-family="Arial">Certified</text>
+          </svg>
+        </div>
+        <div class="cert-body">
+          <div class="cert-name">GitLab Certified CI/CD Associate</div>
+          <div class="cert-issuer">GitLab</div>
+          <div class="cert-status obtained">&#10003; Obtenu</div>
+          <div class="cert-verify">&#128279; V&eacute;rifier sur Credly</div>
+        </div>
+      </a>
+
+      <a class="cert-card" href="https://www.credly.com/badges/caea1b30-11d5-473f-9663-2332ee831da8" target="_blank">
+        <div class="cert-badge" style="background:linear-gradient(135deg,#1e1a3e,#292961);">
+          <svg viewBox="0 0 80 80" width="80" height="80">
+            <rect x="8" y="24" width="64" height="50" rx="6" fill="#292961"/>
+            <rect x="8" y="24" width="64" height="22" rx="6" fill="#3d2c8d"/>
+            <rect x="24" y="6" width="32" height="16" rx="8" fill="white"/>
+            <text x="40" y="17" text-anchor="middle" font-size="7" fill="#292961" font-family="Arial" font-weight="bold">Associate</text>
+            <text x="40" y="42" text-anchor="middle" font-size="9" fill="white" font-family="Arial" font-weight="bold">GitLab</text>
+            <text x="40" y="57" text-anchor="middle" font-size="8" fill="#fc6d26" font-family="Arial" font-weight="bold">Git</text>
+            <text x="40" y="68" text-anchor="middle" font-size="7" fill="white" font-family="Arial">Certified</text>
+          </svg>
+        </div>
+        <div class="cert-body">
+          <div class="cert-name">GitLab Certified Git Associate</div>
+          <div class="cert-issuer">GitLab</div>
+          <div class="cert-status obtained">&#10003; Obtenu</div>
+          <div class="cert-verify">&#128279; V&eacute;rifier sur Credly</div>
+        </div>
+      </a>
+
+      <a class="cert-card" href="https://www.credly.com/badges/fd136dea-1a08-4f23-8d58-18474534b3e6" target="_blank">
+        <div class="cert-badge" style="background:linear-gradient(135deg,#0d0d0d,#1a1a1a);">
+          <svg viewBox="0 0 80 80" width="80" height="80">
+            <rect x="8" y="8" width="64" height="64" rx="6" fill="#1a1a1a"/>
+            <rect x="8" y="8" width="64" height="22" rx="6" fill="#6b3fa0"/>
+            <text x="40" y="24" text-anchor="middle" font-size="8" fill="white" font-family="Arial" font-weight="bold">Terraform</text>
+            <text x="40" y="42" text-anchor="middle" font-size="6.5" fill="#aaa" font-family="Arial">CERTIFIED</text>
+            <text x="40" y="52" text-anchor="middle" font-size="7.5" fill="white" font-family="Arial" font-weight="bold">ASSOCIATE</text>
+            <text x="40" y="62" text-anchor="middle" font-size="6" fill="#888" font-family="Arial">HCTA0-003</text>
+          </svg>
+        </div>
+        <div class="cert-body">
+          <div class="cert-name">HashiCorp Certified: Terraform Associate (003)</div>
+          <div class="cert-issuer">HashiCorp</div>
+          <div class="cert-status obtained">&#10003; Obtenu</div>
+          <div class="cert-verify">&#128279; V&eacute;rifier sur Credly</div>
+        </div>
+      </a>
+
+      <a class="cert-card" href="https://www.credly.com/badges/8cd09572-72da-4043-ae23-8f2b5dabb7ea/public_url" target="_blank">
+        <div class="cert-badge" style="background:linear-gradient(135deg,#004d25,#00703a);">
+          <svg viewBox="0 0 80 80" width="80" height="80">
+            <polygon points="40,4 70,18 70,56 40,76 10,56 10,18" fill="#00843d" stroke="#00a94f" stroke-width="2"/>
+            <text x="40" y="26" text-anchor="middle" font-size="5.5" fill="white" font-family="Arial" font-weight="bold">INTERNATIONAL</text>
+            <text x="40" y="34" text-anchor="middle" font-size="5" fill="white" font-family="Arial">ACADEMIC</text>
+            <text x="40" y="42" text-anchor="middle" font-size="5" fill="white" font-family="Arial">QUALIFICATIONS</text>
+            <text x="40" y="58" text-anchor="middle" font-size="9" fill="white" font-family="Arial" font-weight="bold">WES</text>
+          </svg>
+        </div>
+        <div class="cert-body">
+          <div class="cert-name">Verified International Academic Qualifications</div>
+          <div class="cert-issuer">World Education Services</div>
+          <div class="cert-status obtained">&#10003; Obtenu</div>
+          <div class="cert-verify">&#128279; V&eacute;rifier sur Credly</div>
+        </div>
+      </a>
+
+      <div class="cert-card" style="cursor:default;">
+        <div class="cert-badge" style="background:linear-gradient(135deg,#1a232f,#232f3e);">
+          <svg viewBox="0 0 80 80" width="80" height="80">
+            <polygon points="40,4 75,22 75,58 40,76 5,58 5,22" fill="#232f3e" stroke="#8b949e" stroke-width="2" stroke-dasharray="4 3"/>
+            <text x="40" y="32" text-anchor="middle" font-size="8.5" fill="#8b949e" font-family="Arial" font-weight="bold">aws</text>
+            <text x="40" y="45" text-anchor="middle" font-size="6" fill="#8b949e" font-family="Arial">Solutions</text>
+            <text x="40" y="54" text-anchor="middle" font-size="6" fill="#8b949e" font-family="Arial">Architect Pro</text>
+          </svg>
+        </div>
+        <div class="cert-body">
+          <div class="cert-name">AWS Solutions Architect Professional</div>
+          <div class="cert-issuer">Amazon Web Services</div>
+          <div class="cert-status progress">&#9203; En cours</div>
+        </div>
+      </div>
+
+      <div class="cert-card" style="cursor:default;">
+        <div class="cert-badge" style="background:linear-gradient(135deg,#0a1a3e,#0a2a5e);">
+          <svg viewBox="0 0 80 80" width="80" height="80">
+            <circle cx="40" cy="40" r="32" fill="#0a2a5e" stroke="#8b949e" stroke-width="2" stroke-dasharray="4 3"/>
+            <text x="40" y="37" text-anchor="middle" font-size="11" fill="#8b949e" font-family="Arial" font-weight="bold">CKA</text>
+            <text x="40" y="50" text-anchor="middle" font-size="6" fill="#8b949e" font-family="Arial">Kubernetes</text>
+            <text x="40" y="59" text-anchor="middle" font-size="5.5" fill="#8b949e" font-family="Arial">Administrator</text>
+          </svg>
+        </div>
+        <div class="cert-body">
+          <div class="cert-name">Certified Kubernetes Administrator (CKA)</div>
+          <div class="cert-issuer">CNCF / Linux Foundation</div>
+          <div class="cert-status progress">&#9203; En cours</div>
+        </div>
+      </div>
+
     </div>
   </div>
 </section>
