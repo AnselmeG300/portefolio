@@ -76,6 +76,10 @@
     footer{background:var(--surface);border-top:1px solid var(--border);text-align:center;padding:24px;color:var(--text-muted);font-size:.85rem}
     footer a{color:var(--accent);text-decoration:none}
     @media(max-width:640px){header h1{font-size:1.5rem}.projects-grid{grid-template-columns:1fr}.skills-grid{grid-template-columns:1fr}}
+    .section-link{background:none;border:none;cursor:pointer;color:var(--text-muted);font-size:.85rem;margin-left:8px;padding:2px 6px;border-radius:4px;opacity:0;transition:opacity .2s,color .2s;vertical-align:middle;position:relative}
+    h2:hover .section-link,.section-link:focus{opacity:1}.section-link:hover{color:var(--accent)}
+    .section-link .tip{position:absolute;bottom:calc(100% + 6px);left:50%;transform:translateX(-50%);background:var(--surface2);border:1px solid var(--border);color:var(--text);font-size:.72rem;white-space:nowrap;padding:3px 8px;border-radius:4px;pointer-events:none;opacity:0;transition:opacity .2s}
+    .section-link.copied .tip{opacity:1}
     .modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,.75);z-index:1000;display:flex;align-items:center;justify-content:center;opacity:0;visibility:hidden;transition:opacity .25s,visibility .25s;padding:20px}
     .modal-overlay.open{opacity:1;visibility:visible}
     .modal-box{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);max-width:700px;width:100%;max-height:88vh;overflow-y:auto;padding:32px;position:relative;transform:translateY(20px);transition:transform .25s}
@@ -137,7 +141,7 @@
 <hr class="section-divider" />
 <section id="skills">
   <div class="container">
-    <h2><span>&#128295;</span> Comp&#233;tences</h2>
+    <h2><span>&#128295;</span> Compétences <button class="section-link" onclick="copyLink('skills')" title="Copier le lien de cette section">🔗<span class="tip">Lien copié !</span></button></h2>
     <div class="skills-grid">
       <div class="skill-card">
         <h3>&#9729; Cloud AWS</h3>
@@ -183,7 +187,7 @@
 <hr class="section-divider" />
 <section id="certifications">
   <div class="container">
-    <h2><span>&#127941;</span> Certifications</h2>
+    <h2><span>&#127941;</span> Certifications <button class="section-link" onclick="copyLink('certifications')" title="Copier le lien de cette section">🔗<span class="tip">Lien copié !</span></button></h2>
     <div class="cert-grid">
 
       <a class="cert-card" href="https://www.credly.com/badges/f6e7f0cb-0ce7-4ad1-830b-cf5be57bbef3" target="_blank">
@@ -319,7 +323,7 @@
 <hr class="section-divider" />
 <section id="projects">
   <div class="container">
-    <h2><span>&#128193;</span> Projets</h2>
+    <h2><span>&#128193;</span> Projets <button class="section-link" onclick="copyLink('projects')" title="Copier le lien de cette section">🔗<span class="tip">Lien copié !</span></button></h2>
     <div class="filter-bar">
       <input type="text" id="search-input" placeholder="&#128269; Rechercher..." oninput="filterProjects()" />
       <button class="filter-btn active" onclick="setFilter('all',this)">Tous</button>
@@ -898,7 +902,7 @@
 <hr class="section-divider" />
 <section id="mission">
   <div class="container">
-    <h2><span>&#127919;</span> Mission</h2>
+    <h2><span>&#127919;</span> Mission <button class="section-link" onclick="copyLink('mission')" title="Copier le lien de cette section">🔗<span class="tip">Lien copié !</span></button></h2>
     <div class="skills-grid" style="grid-template-columns:1fr;">
       <div class="skill-card" style="max-width:860px;margin:0 auto;">
         <p style="color:var(--text);font-size:1rem;line-height:1.85;margin:0 0 18px;">
@@ -920,7 +924,7 @@
 <hr class="section-divider" />
 <section id="contact">
   <div class="container">
-    <h2><span>&#128236;</span> Contact</h2>
+    <h2><span>&#128236;</span> Contact <button class="section-link" onclick="copyLink('contact')" title="Copier le lien de cette section">🔗<span class="tip">Lien copié !</span></button></h2>
     <div class="skills-grid">
       <div class="skill-card">
         <h3>&#127760; Liens &amp; Contact</h3>
@@ -994,6 +998,15 @@ const PROJECTS={
 'iform-lab':{title:"IForm Lab Training",contexte:"Environnement de TPs pratiques IForm Lab sur technologies cloud et DevOps dans un cadre d'apprentissage structur\u00e9.",role:["Conception des TPs et exercices pratiques cloud/DevOps","Animation des sessions de formation dans l'environnement IForm Lab"],resultats:["Environnement d'apprentissage structur\u00e9 pour les technologies cloud et DevOps","TPs pratiques couvrant diff\u00e9rentes technologies du p\u00e9rim\u00e8tre"],repo:"https://github.com/AnselmeG300/iform-lab-training"},
 'la-maison-jungle':{title:"La Maison Jungle",contexte:"Projet web frontend responsive : site vitrine pour une boutique de plantes avec HTML, CSS et JavaScript vanilla.",role:["Conception et d\u00e9veloppement du site vitrine responsive","Int\u00e9gration des \u00e9l\u00e9ments UI : catalogue produits, navigation, interactions"],resultats:["Site vitrine responsive fonctionnel","Ma\u00eetrise des fondamentaux HTML/CSS/JavaScript"],repo:"https://github.com/AnselmeG300/la-maison-jungle"}
 };
+function copyLink(id){
+  const url=location.origin+location.pathname+'#'+id;
+  navigator.clipboard.writeText(url).then(()=>{
+    const btn=document.querySelector('#'+id+' h2 .section-link');
+    if(!btn)return;
+    btn.classList.add('copied');
+    setTimeout(()=>btn.classList.remove('copied'),2000);
+  });
+}
 function openModal(pid){
   const d=PROJECTS[pid];if(!d)return;
   document.getElementById('modal-title').textContent=d.title;
