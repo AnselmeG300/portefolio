@@ -1046,7 +1046,16 @@ function setFilter(f,btn){
   document.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active'));
   btn.classList.add('active');
   filterProjects();
+  const url=f==='all'?location.pathname+'#projects':location.pathname+'?filter='+encodeURIComponent(f)+'#projects';
+  history.replaceState(null,'',url);
 }
+document.addEventListener('DOMContentLoaded',()=>{
+  const f=new URLSearchParams(location.search).get('filter');
+  if(f){
+    const btn=document.querySelector(`.filter-btn[onclick="setFilter('${f}',this)"]`);
+    if(btn){setFilter(f,btn);document.getElementById('projects').scrollIntoView();}
+  }
+});
 function filterProjects(){
   const q=document.getElementById('search-input').value.toLowerCase();
   const cards=document.querySelectorAll('.project-card');
