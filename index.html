@@ -40,6 +40,13 @@
     .filter-btn{padding:8px 18px;border-radius:20px;border:1px solid var(--border);background:var(--surface);color:var(--text-muted);cursor:pointer;font-size:.85rem;transition:all .2s}
     .filter-btn:hover{border-color:var(--accent);color:var(--text)}
     .filter-btn.active{background:var(--accent);border-color:var(--accent);color:#0d1117;font-weight:600}
+    .links-dropdown{position:relative}
+    .links-dropdown-btn{display:flex;align-items:center;gap:6px;padding:7px 12px;border:1px solid var(--border);border-radius:var(--radius);background:var(--surface2);color:var(--text-muted);cursor:pointer;font-size:.82rem;transition:all .2s;white-space:nowrap}
+    .links-dropdown-btn:hover{border-color:var(--accent);color:var(--text)}
+    .links-dropdown-btn .arrow{transition:transform .2s;font-style:normal;display:inline-block}
+    .links-dropdown-btn.open .arrow{transform:rotate(180deg)}
+    .links-dropdown-panel{position:absolute;bottom:calc(100% + 6px);left:0;z-index:50;background:var(--surface2);border:1px solid var(--border);border-radius:var(--radius);padding:8px;display:none;flex-direction:column;gap:6px;min-width:200px}
+    .links-dropdown-panel.open{display:flex}
     #search-input{padding:8px 16px;border-radius:20px;border:1px solid var(--border);background:var(--surface);color:var(--text);font-size:.9rem;min-width:220px;outline:none;transition:border-color .2s}
     #search-input:focus{border-color:var(--accent)}
     #search-input::placeholder{color:var(--text-muted)}
@@ -444,6 +451,20 @@
 <span class="tag tag-cyan">FinOps</span>
 </div>
           <div class="card-footer">
+            <div class="links-dropdown">
+              <button class="links-dropdown-btn" onclick="toggleLinksDropdown(this)"><svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg> Repos <em class="arrow">▾</em></button>
+              <div class="links-dropdown-panel">
+                <a class="btn-github" href="https://github.com/AnselmeG300/migration-eazytraining" target="_blank"><svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg> Repo EAZYTraining</a>
+                <a class="btn-github" href="https://github.com/AnselmeG300/migration-eazylabs" target="_blank"><svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg> Repo EAZYLabs</a>
+              </div>
+            </div>
+            <div class="links-dropdown">
+              <button class="links-dropdown-btn" onclick="toggleLinksDropdown(this)" style="border-color:var(--accent2);color:var(--accent2)">🌐 Productions <em class="arrow">▾</em></button>
+              <div class="links-dropdown-panel" style="left:auto;right:0">
+                <a class="btn-github" href="https://eazytraining.fr" target="_blank" style="border-color:var(--accent2);color:var(--accent2)">🌐 eazytraining.fr</a>
+                <a class="btn-github" href="https://docker.labs.eazytraining.fr" target="_blank" style="border-color:var(--accent2);color:var(--accent2)">🌐 docker.labs.eazytraining.fr</a>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -998,6 +1019,21 @@ const PROJECTS={
 'iform-lab':{title:"IForm Lab Training",contexte:"Environnement de TPs pratiques IForm Lab sur technologies cloud et DevOps dans un cadre d'apprentissage structur\u00e9.",role:["Conception des TPs et exercices pratiques cloud/DevOps","Animation des sessions de formation dans l'environnement IForm Lab"],resultats:["Environnement d'apprentissage structur\u00e9 pour les technologies cloud et DevOps","TPs pratiques couvrant diff\u00e9rentes technologies du p\u00e9rim\u00e8tre"],repo:"https://github.com/AnselmeG300/iform-lab-training"},
 'la-maison-jungle':{title:"La Maison Jungle",contexte:"Projet web frontend responsive : site vitrine pour une boutique de plantes avec HTML, CSS et JavaScript vanilla.",role:["Conception et d\u00e9veloppement du site vitrine responsive","Int\u00e9gration des \u00e9l\u00e9ments UI : catalogue produits, navigation, interactions"],resultats:["Site vitrine responsive fonctionnel","Ma\u00eetrise des fondamentaux HTML/CSS/JavaScript"],repo:"https://github.com/AnselmeG300/la-maison-jungle"}
 };
+function toggleLinksDropdown(btn){
+  const isOpen=btn.classList.contains('open');
+  document.querySelectorAll('.links-dropdown-btn.open').forEach(b=>{
+    b.classList.remove('open');
+    b.nextElementSibling.classList.remove('open');
+  });
+  if(!isOpen){btn.classList.add('open');btn.nextElementSibling.classList.add('open');}
+}
+document.addEventListener('click',e=>{
+  if(!e.target.closest('.links-dropdown')){
+    document.querySelectorAll('.links-dropdown-btn.open').forEach(b=>{
+      b.classList.remove('open');b.nextElementSibling.classList.remove('open');
+    });
+  }
+});
 function copyLink(id){
   const url=location.origin+location.pathname+'#'+id;
   navigator.clipboard.writeText(url).then(()=>{
