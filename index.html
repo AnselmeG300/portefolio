@@ -67,6 +67,8 @@
     .domain-devsecops{background:rgba(210,168,255,.2);color:#ff7b72;border:1px solid rgba(255,123,114,.3)}
     .domain-microservices{background:rgba(63,185,80,.1);color:#7ee787;border:1px solid rgba(126,231,135,.3)}
     .domain-platform{background:rgba(255,235,139,.15);color:#e3b341;border:1px solid rgba(227,179,65,.3)}
+    .domain-po{background:rgba(255,120,200,.15);color:#f778ba;border:1px solid rgba(247,120,186,.3)}
+    .tag-pink{background:rgba(255,120,200,.15);color:#f778ba;border:1px solid rgba(247,120,186,.3)}
     .card-body h3{font-size:1rem;font-weight:700;margin-bottom:8px}
     .card-body h3 a{color:var(--text);text-decoration:none}
     .card-body h3 a:hover{color:var(--accent)}
@@ -343,11 +345,12 @@
       <button class="filter-btn" onclick="setFilter('devsecops',this)">DevSecOps</button>
       <button class="filter-btn" onclick="setFilter('training',this)">Formation</button>
       <button class="filter-btn" onclick="setFilter('platform',this)">Plateforme</button>
+      <button class="filter-btn" onclick="setFilter('po',this)">Product Owner</button>
     </div>
     <div class="projects-grid" id="projects-grid">
       <div class="no-results" id="no-results">Aucun projet trouv&#233;.</div>
 
-      <div class="project-card" data-pid="eazyskills-app" data-domains="dev cloud iac cicd" data-tags="fastapi python chatgpt openai sqlite aws lambda amplify github-actions terraform ansible edtech ia github-projects">
+      <div class="project-card" data-pid="eazyskills-app" data-domains="dev cloud iac cicd po" data-tags="fastapi python chatgpt openai sqlite aws lambda amplify github-actions terraform ansible edtech ia github-projects">
         <img class="card-cover" src="eazyskills.png" alt="EAZYSkills GenAI" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" /><div class="card-cover-placeholder" style="display:none; background:linear-gradient(135deg,#0a2e1a,#1a4e3a);">🎓</div>
         <div class="card-body">
           <span class="card-domain domain-dev">Dev · Cloud AWS · CI/CD · IaC</span>
@@ -364,6 +367,7 @@
             <span class="tag tag-purple">Ansible</span>
             <span class="tag tag-red">SQLite</span>
             <span class="tag tag-green">GitHub Projects &amp; Issues</span>
+            <span class="tag tag-pink">Product Owner</span>
           </div>
           <div class="card-footer">
             <a class="btn-github" href="https://github.com/AnselmeG300/eazyskills-app" target="_blank"><svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg> Repo</a>
@@ -372,7 +376,7 @@
         </div>
       </div>
 
-      <div class="project-card" data-pid="wellmum" data-domains="cloud iac cicd" data-tags="terraform aws github-actions nestjs fastapi nextjs ecs fargate rds efs github-projects">
+      <div class="project-card" data-pid="wellmum" data-domains="cloud iac cicd po" data-tags="terraform aws github-actions nestjs fastapi nextjs ecs fargate rds efs github-projects">
         <img class="card-cover" src="https://raw.githubusercontent.com/AnselmeG300/wellmum/main/architecture%20applicative%20wellmum.drawio.png" alt="Wellmum Architecture" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" /><div class="card-cover-placeholder" style="display:none; background:linear-gradient(135deg,#0a1628,#1a2a4a);">☁️</div>
         <div class="card-body">
           <span class="card-domain domain-cloud">Cloud AWS · IaC · CI/CD</span>
@@ -389,6 +393,7 @@
 <span class="tag tag-red">FastAPI</span>
 <span class="tag tag-red">Next.js</span>
 <span class="tag tag-green">GitHub Projects &amp; Issues</span>
+<span class="tag tag-pink">Product Owner</span>
 </div>
           <div class="card-footer">
             <a class="btn-github" href="https://github.com/AnselmeG300/wellmum" target="_blank"><svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg> Repo</a>
@@ -492,7 +497,7 @@
         </div>
       </div>
 
-      <div class="project-card" data-pid="notifications-bancaires" data-domains="cloud dev" data-tags="aws lambda dynamodb api-gateway ses eventbridge terraform github-actions django revolut serverless fintech github-projects">
+      <div class="project-card" data-pid="notifications-bancaires" data-domains="cloud dev po" data-tags="aws lambda dynamodb api-gateway ses eventbridge terraform github-actions django revolut serverless fintech github-projects">
         <img class="card-cover" src="https://raw.githubusercontent.com/AnselmeG300/notification-transactions-aws-sdk/main/Architecture%20App.png" alt="EAZYCard Architecture" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" /><div class="card-cover-placeholder" style="display:none; background:linear-gradient(135deg,#1a1a0a,#2a2a1a);">💳</div>
         <div class="card-body">
           <span class="card-domain domain-cloud">FinTech · Serverless</span>
@@ -507,6 +512,7 @@
 <span class="tag tag-purple">Terraform</span>
 <span class="tag tag-green">GitHub Actions</span>
 <span class="tag tag-green">GitHub Projects &amp; Issues</span>
+<span class="tag tag-pink">Product Owner</span>
 </div>
           <div class="card-footer">
             <a class="btn-github" href="https://github.com/AnselmeG300/notification-transactions-aws-sdk" target="_blank"><svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg> Repo</a>
@@ -597,7 +603,7 @@
 
       
 
-      <div class="project-card" data-pid="deploy-semaphore" data-domains="cloud iac containers" data-tags="aws ecs fargate terraform semaphore ansible mysql github-actions platform-engineering github-projects">
+      <div class="project-card" data-pid="deploy-semaphore" data-domains="cloud iac containers po" data-tags="aws ecs fargate terraform semaphore ansible mysql github-actions platform-engineering github-projects">
         <img class="card-cover" src="https://raw.githubusercontent.com/AnselmeG300/deploy-semaphore-ecs/main/architecture/Deploy%20ECS.drawio.png" alt="Ansible Semaphore ECS Architecture" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" /><div class="card-cover-placeholder" style="display:none; background:linear-gradient(135deg,#0a2818,#1a3828);">⚙️</div>
         <div class="card-body">
           <span class="card-domain domain-cloud">DevOps · Platform Engineering</span>
@@ -687,7 +693,7 @@
         </div>
       </div>
 
-      <div class="project-card" data-pid="pilotage-formations" data-domains="training management" data-tags="docker kubernetes ansible jenkins gitlab terraform aws python github-projects gitlab-project microsoft-teams management edtech github">
+      <div class="project-card" data-pid="pilotage-formations" data-domains="training management po" data-tags="docker kubernetes ansible jenkins gitlab terraform aws python github-projects gitlab-project microsoft-teams management edtech github">
         <div class="card-cover"><img src="microsoft%20planner.png" alt="Pilotage formations" style="width:100%;height:100%;object-fit:cover;"></div>
         <div class="card-body">
           <span class="card-domain domain-training">Formation &middot; Management &middot; EdTech</span>
@@ -705,6 +711,7 @@
             <span class="tag tag-green">GitHub Projects</span>
             <span class="tag tag-cyan">GitLab Project</span>
             <span class="tag tag-green">GitHub</span>
+            <span class="tag tag-pink">Product Owner</span>
           </div>
           <div class="card-footer"></div>
         </div>
