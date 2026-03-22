@@ -366,6 +366,27 @@
     <div class="projects-grid" id="projects-grid">
       <div class="no-results" id="no-results">Aucun projet trouv&#233;.</div>
 
+      <!-- Projet : Wan’Advisory - Site vitrine -->
+      <div class="project-card" data-pid="wanadvisory" data-domains="dev conseil cloud" data-tags="html css aws s3 cloudfront vitrine contact">
+        <img class="card-cover" src="advaisory.png" alt="Wan’Advisory - Site vitrine" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+        <div class="card-cover-placeholder" style="display:none; background:linear-gradient(135deg,#2e2e1a,#4e4e3a);">💼</div>
+        <div class="card-body">
+          <span class="card-domain domain-dev">Développement · Conseil · Cloud</span>
+          <h3><a href="https://wanadvisory.fr/" target="_blank">Développement et déploiement du site vitrine de Wan’Advisory (Conseil en transformation digitale)</a></h3>
+          <p class="card-desc">Site vitrine pour Wan’Advisory : présentation des services, valorisation de l’expertise, formulaire de contact, déploiement sur AWS S3 + CloudFront.</p>
+          <div class="card-tags">
+            <span class="tag tag-red">HTML</span>
+            <span class="tag tag-blue">CSS</span>
+            <span class="tag tag-orange">AWS S3</span>
+            <span class="tag tag-orange">CloudFront</span>
+            <span class="tag tag-green">Vitrine</span>
+            <span class="tag tag-purple">Contact</span>
+          </div>
+          <div class="card-footer">
+            <a class="btn-github" href="https://wanadvisory.fr/" target="_blank" style="border-color:var(--accent2);color:var(--accent2);">🌐 Production</a>
+          </div>
+        </div>
+      </div>
       <!-- Projet : YOWYOB ERP (anciennement KSM) -->
       <div class="project-card" data-pid="yowyob-erp" data-domains="dev commerce plateforme" data-tags="django rest erp commerce react on-premise scrum gestion-equipe">
         <img class="card-cover" src="yowyob erp.png" alt="YOWYOB ERP (anciennement KSM)" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
@@ -1215,6 +1236,26 @@
 <script>
 const GH_SVG='<svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>';
 const PROJECTS={
+                    'wanadvisory': {
+                      title: "Développement et déploiement du site vitrine de Wan’Advisory (Conseil en transformation digitale)",
+                      contexte: "Dans le cadre d’une collaboration avec le client Wan’Advisory, un cabinet spécialisé dans la transformation digitale et l’intégration de solutions métiers (notamment les Systèmes d’Information de Gestion des Risques – SIGR et des solutions comme SAP) a exprimé le besoin de disposer d’un site vitrine. L’objectif était de présenter clairement ses services, renforcer sa visibilité en ligne et offrir un point de contact accessible à ses prospects.",
+                      role: [
+                        "Développeur Web et déploiement Cloud",
+                        "Analyse et recueil des besoins du client ainsi que clarification des services à présenter.",
+                        "Conception et développement du site vitrine en HTML et CSS natif.",
+                        "Structuration et mise en forme des contenus pour une présentation claire et professionnelle.",
+                        "Implémentation d’un formulaire de contact pour faciliter les échanges avec les prospects.",
+                        "Déploiement du site sur AWS via S3 et CloudFront pour garantir performance et disponibilité."
+                      ],
+                      resultats: [
+                        "Mise en ligne d’un site vitrine moderne et accessible, améliorant la présence digitale du client.",
+                        "Valorisation des services de l’entreprise, facilitant leur compréhension par les visiteurs.",
+                        "Mise en place d’un canal de contact direct, favorisant la génération de leads.",
+                        "Livraison d’une solution simple, performante et scalable basée sur AWS.",
+                        "Application en production : https://wanadvisory.fr/"
+                      ],
+                      prod: "https://wanadvisory.fr/"
+                    },
                 'yowyob-erp': {
                   title: "YOWYOB ERP (anciennement KSM) – Réingénierie d’un ERP de gestion commerciale et opérationnelle (Commerce)",
                   contexte: "Le projet YOWYOB ERP (anciennement KSM) est un ERP de gestion commerciale et opérationnelle développé pour le laboratoire LIRIMA (Laboratoire International en Recherche en Informatique et Mathématiques Appliquées). L’objectif de cette réingénierie était de moderniser l’ERP, en refaisant la modélisation de la base de données, en exposant les services via des API, et en rendant le système modulable, maintenable et évolutif.\nL’ERP inclut plusieurs modules : gestion des produits, partenaires, compagnies, stocks, opérations commerciales et suivi des échéances de paiement. Ces modules permettent de gérer l’ensemble des activités commerciales et opérationnelles de l’entreprise, notamment la création de reçus ou crédits pour les clients, la gestion des transactions et le suivi des paiements. Le projet impliquait également des rencontres avec le client final (DG SARL) et les utilisateurs pour analyser et clarifier les besoins fonctionnels.",
