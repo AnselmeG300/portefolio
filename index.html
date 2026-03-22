@@ -366,6 +366,30 @@
     <div class="projects-grid" id="projects-grid">
       <div class="no-results" id="no-results">Aucun projet trouv&#233;.</div>
 
+      <!-- Projet : YOWYOB ERP (anciennement KSM) -->
+      <div class="project-card" data-pid="yowyob-erp" data-domains="dev commerce" data-tags="django rest erp commerce react on-premise scrum gestion-equipe">
+        <img class="card-cover" src="yowyob erp.png" alt="YOWYOB ERP (anciennement KSM)" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+        <div class="card-cover-placeholder" style="display:none; background:linear-gradient(135deg,#2e2e1a,#4e4e3a);">💼</div>
+        <div class="card-body">
+          <span class="card-domain domain-dev">Développement · Commerce</span>
+          <h3>YOWYOB ERP (anciennement KSM) – Réingénierie d’un ERP de gestion commerciale et opérationnelle (Commerce)</h3>
+          <p class="card-desc">ERP modulaire pour LIRIMA : gestion produits, partenaires, stocks, opérations commerciales, échéances de paiement. Backend Django REST, frontend React, déploiement on-premise.</p>
+          <div class="card-tags">
+            <span class="tag tag-red">Django</span>
+            <span class="tag tag-blue">Django REST</span>
+            <span class="tag tag-orange">ERP</span>
+            <span class="tag tag-green">Commerce</span>
+            <span class="tag tag-blue">React</span>
+            <span class="tag tag-purple">On-premise</span>
+            <span class="tag tag-green">Scrum</span>
+            <span class="tag tag-blue">Gestion d'équipe</span>
+          </div>
+          <div class="card-footer">
+            <a class="btn-github" href="https://agrofeed.yowyob.com" target="_blank" style="border-color:var(--accent2);color:var(--accent2);">🌐 Backend</a>
+            <a class="btn-github" href="https://acma.pythonanywhere.com" target="_blank" style="border-color:var(--accent2);color:var(--accent2);">🌐 Production</a>
+          </div>
+        </div>
+      </div>
       <!-- Projet : GESTIMMO - Application de gestion immobilière -->
       <div class="project-card" data-pid="gestimmo" data-domains="dev immobilier" data-tags="wordpress immobilier annonces planetHoster rendez-vous cloud">
         <img class="card-cover" src="immobilier.png" alt="GESTIMMO - Application de gestion immobilière" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
@@ -1191,6 +1215,30 @@
 <script>
 const GH_SVG='<svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>';
 const PROJECTS={
+                'yowyob-erp': {
+                  title: "YOWYOB ERP (anciennement KSM) – Réingénierie d’un ERP de gestion commerciale et opérationnelle (Commerce)",
+                  contexte: "Le projet YOWYOB ERP (anciennement KSM) est un ERP de gestion commerciale et opérationnelle développé pour le laboratoire LIRIMA (Laboratoire International en Recherche en Informatique et Mathématiques Appliquées). L’objectif de cette réingénierie était de moderniser l’ERP, en refaisant la modélisation de la base de données, en exposant les services via des API, et en rendant le système modulable, maintenable et évolutif.\nL’ERP inclut plusieurs modules : gestion des produits, partenaires, compagnies, stocks, opérations commerciales et suivi des échéances de paiement. Ces modules permettent de gérer l’ensemble des activités commerciales et opérationnelles de l’entreprise, notamment la création de reçus ou crédits pour les clients, la gestion des transactions et le suivi des paiements. Le projet impliquait également des rencontres avec le client final (DG SARL) et les utilisateurs pour analyser et clarifier les besoins fonctionnels.",
+                  role: [
+                    "Lead Backend & Manager d’équipe (incluant l’équipe Frontend) dans une équipe de 7 personnes.",
+                    "Gestion du projet et suivi des tâches via GitHub : code, user stories, échanges et coordination des activités.",
+                    "Recueil et clarification des besoins auprès du client et des utilisateurs finaux.",
+                    "Définition des user stories et organisation des cérémonies Scrum : backlog grooming, sprint planning, daily standups, sprint review.",
+                    "Conception de la modélisation de la base de données avec UML.",
+                    "Implémentation du backend avec Django ORM et fourniture des API REST via Django REST Framework.",
+                    "Supervision du développement frontend avec React.",
+                    "Déploiement et maintenance de l’application sur serveur on-premise.",
+                    "Tests et validation des fonctionnalités avant mise en production."
+                  ],
+                  resultats: [
+                    "Mise en place d’une architecture modulable et évolutive, facilitant l’ajout futur de nouvelles fonctionnalités.",
+                    "Amélioration significative de la maintenabilité et de la qualité du code.",
+                    "Livraison d’une application ERP complète répondant aux besoins du client et des utilisateurs finaux.",
+                    "Structuration et encadrement efficaces de l’équipe, garantissant la cohérence entre backend et frontend.",
+                    "Déploiement réussi sur serveur interne avec suivi et maintenance opérationnelle.",
+                    "Application en production: https://agrofeed.yowyob.com",
+                    "Exemple Backend en production: https://acma.pythonanywhere.com"
+                  ]
+                },
             'gestimmo': {
               title: "GESTIMMO – Application de gestion immobilière (Gestion immobilière / Immobilier)",
               contexte: "Le projet GESTIMMO est une application interne pour StormIT, destinée à la gestion et à la présentation d’annonces immobilières. L’objectif était de permettre aux clients de consulter les biens disponibles, de créer un compte pour suivre leurs annonces favorites et de prendre rendez-vous pour des visites. L’application devait être simple, fonctionnelle et facilement accessible aux utilisateurs finaux.",
@@ -1396,7 +1444,12 @@ function openModal(pid){
   document.getElementById('modal-title').textContent=d.title;
   document.getElementById('modal-contexte').textContent=d.contexte;
   document.getElementById('modal-role').innerHTML=d.role.map(r=>`<li>${r}</li>`).join('');
-  document.getElementById('modal-resultats').innerHTML=d.resultats.map(r=>`<li>${r}</li>`).join('');
+  // Rendre les liens cliquables dans les résultats (détection auto des URLs)
+  function linkify(text) {
+    const urlPattern = /(https?:\/\/[^\s<]+)/g;
+    return text.replace(urlPattern, url => `<a href="${url}" target="_blank" style="color:var(--accent)">${url}</a>`);
+  }
+  document.getElementById('modal-resultats').innerHTML=d.resultats.map(r=>`<li>${linkify(r)}</li>`).join('');
   let h=d.repo?`<a class="btn-github" href="${d.repo}" target="_blank">${GH_SVG} ${d.repoLabel||'Repo'}</a>`:'';
   if(d.repo2)h+=`<a class="btn-github" href="${d.repo2}" target="_blank">${GH_SVG} ${d.repo2Label||'Repo 2'}</a>`;
   if(d.repos&&d.repos.length)d.repos.forEach(r=>{h+=`<a class="btn-github" href="${r.url}" target="_blank">${GH_SVG} ${r.label||'Repo'}</a>`;});
