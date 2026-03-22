@@ -203,11 +203,9 @@
       <div class="skill-card">
         <h3>&#128051; Conteneurisation & Orchestration</h3>
         <div class="skill-tags">
-          <span class="tag tag-blue">Docker</span><span class="tag tag-blue">Docker Compose</span><span class="tag tag-blue">Kubernetes</span><span class="tag tag-blue">ECS Fargate</span><span class="tag tag-blue">EKS</span>
+          <span class="tag tag-blue">Docker</span><span class="tag tag-blue">Docker Compose</span><span class="tag tag-blue">Docker Swarm</span><span class="tag tag-blue">Kubernetes</span><span class="tag tag-blue">ECS Fargate</span><span class="tag tag-blue">EKS</span>
         </div>
       </div>
-      
-      
     </div>
   </div>
 </section>
@@ -368,6 +366,32 @@
     <div class="projects-grid" id="projects-grid">
       <div class="no-results" id="no-results">Aucun projet trouv&#233;.</div>
 
+      <!-- Projet : Application de gestion des patients -->
+      <div class="project-card" data-pid="clinic-manager-vision" data-domains="dev microservices sante" data-tags="django rest postgres ecs gitlab cicd sante esante">
+        <img class="card-cover" src="CLMA.png" alt="Application de gestion des patients" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+        <div class="card-cover-placeholder" style="display:none; background:linear-gradient(135deg,#1a2e2e,#3a4e4e);">🏥</div>
+        <div class="card-body">
+          <span class="card-domain domain-dev">Développement · Microservices · Santé</span>
+          <h3><a href="https://clma.pythonanywhere.com" target="_blank">Application de gestion des patients – Clinique La Vision (Santé / e-santé)</a></h3>
+          <p class="card-desc">Application de gestion du parcours patient pour la Clinique La Vision : centralisation des données médicales, suivi des hospitalisations, traçabilité des...</p>
+          <div class="card-tags">
+            <span class="tag tag-red">Django</span>
+            <span class="tag tag-blue">Django REST</span>
+            <span class="tag tag-orange">PostgreSQL</span>
+            <span class="tag tag-green">GitLab on prem</span>
+            <span class="tag tag-green">CI/CD</span>
+            <span class="tag tag-blue">Docker</span>
+            <span class="tag tag-blue">Docker Swarm</span>
+            <span class="tag tag-purple">On premise</span>
+            <span class="tag tag-purple">Santé</span>
+            <span class="tag tag-purple">e-santé</span>
+          </div>
+          <div class="card-footer">
+            <a class="btn-github" href="https://clma.pythonanywhere.com" target="_blank" style="border-color:var(--accent2);color:var(--accent2);">🌐 Production</a>
+          </div>
+        </div>
+      </div>
+
       <!-- Projet : OPENSYS TECHNOLOGIES -->
       <div class="project-card" data-pid="opensys-technologies" data-domains="dev conseil odoo microservices" data-tags="odoo fullstack vitrine delivery accompagnement microservices">
         <img class="card-cover" src="open sys tech.png" alt="OPENSYS TECHNOLOGIES" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
@@ -396,7 +420,7 @@
         <div class="card-body">
           <span class="card-domain domain-dev">Développement · Microservices</span>
           <h3><a href="https://qualisysconsulting.com" target="_blank">Refonte et conteneurisation du site Qualisys Consulting (Conseil / IT & Transformation digitale)</a></h3>
-          <p class="card-desc">Refonte du site web de Qualisys Consulting (Odoo) pour clarifier les offres, valoriser les cas d'usage et moderniser l'infrastructure via la conteneurisation Docker.</p>
+          <p class="card-desc">Refonte du site web de Qualisys Consulting (Odoo) pour clarifier les offres, valoriser les cas d'usage et moderniser l'infrastructure via la conteneurisation...</p>
           <div class="card-tags">
             <span class="tag tag-green">Tech Lead</span>
             <span class="tag tag-red">Odoo</span>
@@ -418,7 +442,7 @@
         <div class="card-body">
           <span class="card-domain domain-po">Plateforme · Formation · Product Owner</span>
           <h3><a href="https://arche-tutoring.be/" target="_blank">ArcheTutoring – Mise en place d’une plateforme web (EdTech / Préparation académique)</a></h3>
-          <p class="card-desc">Site vitrine pour une startup belge spécialisée dans la préparation aux concours de médecine. Accès aux contenus pédagogiques et découverte des offres de formation.</p>
+          <p class="card-desc">Site vitrine pour une startup belge spécialisée dans la préparation aux concours de médecine. Accès aux contenus pédagogiques et découverte des offres...</p>
           <div class="card-tags">
             <span class="tag tag-pink">Product Owner</span>
             <span class="tag tag-red">WordPress</span>
@@ -519,7 +543,7 @@
         <div class="card-body">
           <span class="card-domain domain-cicd">DevOps · DevSecOps · Formation</span>
           <h3><a href="https://gitlab.com/AnselmeG300/alpinehelloworld" target="_blank">Afriland First Bank — Accompagnement à l’adoption des pratiques DevOps & DevSecOps (Banque/Services financiers)</a></h3>
-          <p class="card-desc">Accompagnement de la DSI d'Afriland First Bank (leader bancaire au Cameroun) dans la montée en compétences DevOps d'une équipe IT de 17 personnes : Docker, GitLab CI/CD, DevSecOps.</p>
+          <p class="card-desc">Accompagnement de la DSI d'Afriland First Bank (leader bancaire au Cameroun) dans la montée en compétences DevOps d'une équipe IT de 17 personne...</p>
           <div class="card-tags"><span class="tag tag-blue">Docker</span>
 <span class="tag tag-blue">Docker Compose</span>
 <span class="tag tag-blue">Docker Swarm</span>
@@ -541,7 +565,7 @@
         <div class="card-body">
           <span class="card-domain domain-cloud">FinTech · Cloud AWS</span>
           <h3><a href="https://neero.io" target="_blank">Optimisation des coûts d'infrastructure – Neero</a></h3>
-          <p class="card-desc">Audit et optimisation de l'infrastructure AWS de Neero (EKS + EC2, ~4 000 €/mois). Rightsizing, suppression de ressources inutilisées, Compute Savings Plans, gestion des logs. Réduction de 62 % de la facture.</p>
+          <p class="card-desc">Audit et optimisation de l'infrastructure AWS de Neero (EKS + EC2, ~4 000 €/mois). Rightsizing, suppression de ressources inutilisées, Compute Savings Plans, gestion...</p>
           <div class="card-tags"><span class="tag tag-orange">AWS EKS</span>
 <span class="tag tag-orange">EC2</span>
 <span class="tag tag-blue">Kubernetes</span>
@@ -593,7 +617,7 @@
         <div class="card-body">
           <span class="card-domain domain-cicd">CI/CD · DevSecOps</span>
           <h3><a href="https://github.com/AnselmeG300/jenkins-CICD-spring-boot-app" target="_blank">Jenkins CI/CD — Spring Boot (PayMyBuddy)</a></h3>
-          <p class="card-desc">Pipeline CI/CD complet : build Maven, analyse SonarCloud, Docker, déploiement AWS multi-environnements (staging/prod) avec Terraform et Ansible.</p>
+          <p class="card-desc">Pipeline CI/CD complet : build Maven, analyse SonarCloud, Docker, déploiement AWS multi-environnements (staging/prod) avec Terraform et...</p>
           <div class="card-tags"><span class="tag tag-red">Java 17</span>
 <span class="tag tag-red">Spring Boot</span>
 <span class="tag tag-green">Jenkins</span>
@@ -1123,6 +1147,29 @@
 <script>
 const GH_SVG='<svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>';
 const PROJECTS={
+    'clinic-manager-vision': {
+      title: "Application de gestion des patients – Clinique La Vision (Santé / e-santé)",
+      contexte: "Dans le cadre d’une mission réalisée chez Qualisys Consulting pour la Clinique La Vision, l’objectif était de concevoir une application permettant de digitaliser la gestion des patients et des activités médicales. La clinique avait besoin d’une solution centralisée pour gérer les informations des patients, les consultations, les traitements, ainsi que le suivi du personnel soignant et des hospitalisations. À terme, cette solution devait servir de base pour l’intégration de fonctionnalités d’intelligence artificielle.",
+      role: [
+        "Développeur Back-end & Tech Lead",
+        "Analyse des besoins et gestion du projet de l’analyse au déploiement",
+        "Conception et implémentation du modèle de données avec Django ORM et PostgreSQL",
+        "Développement du back-end avec Django",
+        "Exposition des services via Django REST Framework",
+        "Mise en place de l’interface d’administration avec Django Admin",
+        "Échanges réguliers avec le client et validation des fonctionnalités",
+        "Planification et mise place de la planification CICD avec GitLab on prem",
+        "Déploiement on premise en utlisant Docker Swarm"
+      ],
+      resultats: [
+        "Mise en place d’une application de gestion complète du parcours patient",
+        "Centralisation des données médicales : consultations, examens, diagnostics, traitements (prescrits et appliqués), allergies, historique médical",
+        "Suivi des hospitalisations et traçabilité des actes médicaux",
+        "Base de données structurée prête pour l’intégration future d’intelligence artificielle",
+        "Exemple Backend en production: https://clma.pythonanywhere.com"
+      ],
+      prod: "https://clma.pythonanywhere.com"
+    },
   'opensys-technologies':{
     title:"Développement d’un site vitrine – OPENSYS TECHNOLOGIES (Conseil / Développement commercial & accompagnement des entreprises)",
     contexte:"OPENSYS TECHNOLOGIES souhaitait mettre en place un site vitrine pour présenter ses services, ses partenaires et sa vision, tout en permettant la gestion des deinternes via une plateforme unifiée basée sur Odoo.",
