@@ -366,6 +366,27 @@
     <div class="projects-grid" id="projects-grid">
       <div class="no-results" id="no-results">Aucun projet trouv&#233;.</div>
 
+      <!-- Projet : GESTIMMO - Application de gestion immobilière -->
+      <div class="project-card" data-pid="gestimmo" data-domains="dev immobilier" data-tags="wordpress immobilier annonces planetHoster rendez-vous cloud">
+        <img class="card-cover" src="immobilier.png" alt="GESTIMMO - Application de gestion immobilière" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+        <div class="card-cover-placeholder" style="display:none; background:linear-gradient(135deg,#2e2e1a,#4e4e3a);">🏠</div>
+        <div class="card-body">
+          <span class="card-domain domain-dev">Développement · Immobilier</span>
+          <h3>GESTIMMO – Application de gestion immobilière (Gestion immobilière / Immobilier)</h3>
+          <p class="card-desc">Application interne pour StormIT : gestion et présentation d’annonces immobilières, création de comptes clients, prise de rendez-vous, déploiement sur PlanetHoster.</p>
+          <div class="card-tags">
+            <span class="tag tag-red">WordPress</span>
+            <span class="tag tag-green">Immobilier</span>
+            <span class="tag tag-blue">Annonces</span>
+            <span class="tag tag-purple">Rendez-vous</span>
+            <span class="tag tag-green">PlanetHoster</span>
+            <span class="tag tag-blue">Cloud</span>
+          </div>
+          <div class="card-footer">
+            <!-- Bouton de déploiement supprimé -->
+          </div>
+        </div>
+      </div>
       <!-- Projet : ACMA - Réingénierie d’un ERP de gestion scolaire -->
       <div class="project-card" data-pid="acma-erp" data-domains="dev education" data-tags="django rest erp education planetHoster modularite refonte api">
         <img class="card-cover" src="ACMA.png" alt="ACMA - Réingénierie d’un ERP de gestion scolaire" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
@@ -1170,6 +1191,22 @@
 <script>
 const GH_SVG='<svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>';
 const PROJECTS={
+            'gestimmo': {
+              title: "GESTIMMO – Application de gestion immobilière (Gestion immobilière / Immobilier)",
+              contexte: "Le projet GESTIMMO est une application interne pour StormIT, destinée à la gestion et à la présentation d’annonces immobilières. L’objectif était de permettre aux clients de consulter les biens disponibles, de créer un compte pour suivre leurs annonces favorites et de prendre rendez-vous pour des visites. L’application devait être simple, fonctionnelle et facilement accessible aux utilisateurs finaux.",
+              role: [
+                "Développeur Web / Intégrateur WordPress en charge du développement complet de l’application.",
+                "Configuration et personnalisation de WordPress pour gérer les annonces et les comptes utilisateurs.",
+                "Mise en place des fonctionnalités pour création de compte et prise de rendez-vous.",
+                "Déploiement de l’application sur PlanetHoster."
+              ],
+              resultats: [
+                "Mise en ligne d’une application fonctionnelle et accessible aux clients.",
+                "Gestion simplifiée des annonces et des rendez-vous pour les utilisateurs.",
+                "Amélioration de la visibilité des biens immobiliers proposés par l’entreprise.",
+                "Livraison d’une solution stable et déployée sur cloud, facile à maintenir et à faire évoluer."
+              ]
+            },
         'acma-erp': {
           title: "ACMA – Réingénierie d’un ERP de gestion scolaire (Éducation / School Management)",
           contexte: "Le projet ACMA (Academy Manager) est un ERP (de StormIT) de gestion scolaire couvrant plusieurs domaines : gestion des inscriptions, suivi des paiements, gestion des notes, des emplois du temps ainsi que des stocks. Dans une optique d’amélioration et d’évolution du système existant, une réingénierie complète a été menée afin de rendre l’application plus modulaire, maintenable et évolutive.",
