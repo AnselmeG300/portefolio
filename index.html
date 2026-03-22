@@ -366,6 +366,29 @@
     <div class="projects-grid" id="projects-grid">
       <div class="no-results" id="no-results">Aucun projet trouv&#233;.</div>
 
+      <!-- Projet : ACMA - Réingénierie d’un ERP de gestion scolaire -->
+      <div class="project-card" data-pid="acma-erp" data-domains="dev education" data-tags="django rest erp education planetHoster modularite refonte api">
+        <img class="card-cover" src="ACMA.png" alt="ACMA - Réingénierie d’un ERP de gestion scolaire" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+        <div class="card-cover-placeholder" style="display:none; background:linear-gradient(135deg,#1a2e2e,#3a4e4e);">🏫</div>
+        <div class="card-body">
+          <span class="card-domain domain-dev">Développement · Éducation</span>
+          <h3><a href="https://acma.pythonanywhere.com" target="_blank">ACMA – Réingénierie d’un ERP de gestion scolaire (Éducation / School Management)</a></h3>
+          <p class="card-desc">ERP scolaire modulaire (inscriptions, paiements, notes, emplois du temps, stocks). Refonte complète pour modularité, maintenabilité et évolutivité. Backend...</p>
+          <div class="card-tags">
+            <span class="tag tag-red">Django</span>
+            <span class="tag tag-blue">Django REST</span>
+            <span class="tag tag-orange">ERP</span>
+            <span class="tag tag-green">Éducation</span>
+            <span class="tag tag-purple">Refonte</span>
+            <span class="tag tag-blue">API</span>
+            <span class="tag tag-green">PlanetHoster</span>
+            <span class="tag tag-purple">Modularité</span>
+          </div>
+          <div class="card-footer">
+            <a class="btn-github" href="https://acma.pythonanywhere.com" target="_blank" style="border-color:var(--accent2);color:var(--accent2);">🌐 Production</a>
+          </div>
+        </div>
+      </div>
       <!-- Projet : Application de gestion des patients -->
       <div class="project-card" data-pid="clinic-manager-vision" data-domains="dev microservices sante" data-tags="django rest postgres ecs gitlab cicd sante esante">
         <img class="card-cover" src="CLMA.png" alt="Application de gestion des patients" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
@@ -1147,6 +1170,27 @@
 <script>
 const GH_SVG='<svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>';
 const PROJECTS={
+        'acma-erp': {
+          title: "ACMA – Réingénierie d’un ERP de gestion scolaire (Éducation / School Management)",
+          contexte: "Le projet ACMA (Academy Manager) est un ERP (de StormIT) de gestion scolaire couvrant plusieurs domaines : gestion des inscriptions, suivi des paiements, gestion des notes, des emplois du temps ainsi que des stocks. Dans une optique d’amélioration et d’évolution du système existant, une réingénierie complète a été menée afin de rendre l’application plus modulaire, maintenable et évolutive.",
+          role: [
+            "Développeur Backend Lead (réingénierie) au sein d’une équipe de 2 personnes.",
+            "Validation des choix techniques et des livrables produits par l’équipe.",
+            "Refonte complète de la modélisation de la base de données.",
+            "Implémentation des modèles avec Django ORM.",
+            "Développement des API REST avec Django REST Framework pour exposer la logique métier.",
+            "Mise en place d’une architecture modulaire et évolutive.",
+            "Déploiement de l’application sur PlanetHoster."
+          ],
+          resultats: [
+            "Mise en place d’une architecture plus modulaire, facilitant l’ajout de nouvelles fonctionnalités.",
+            "Amélioration de la maintenabilité et de la qualité globale du code.",
+            "Meilleure structuration du backend, permettant une évolution plus rapide du produit.",
+            "Modernisation de l’ERP existant et amélioration de sa stabilité.",
+            "Exemple Backend en production: https://acma.pythonanywhere.com"
+          ],
+          prod: "https://acma.pythonanywhere.com"
+        },
     'clinic-manager-vision': {
       title: "Application de gestion des patients – Clinique La Vision (Santé / e-santé)",
       contexte: "Dans le cadre d’une mission réalisée chez Qualisys Consulting pour la Clinique La Vision, l’objectif était de concevoir une application permettant de digitaliser la gestion des patients et des activités médicales. La clinique avait besoin d’une solution centralisée pour gérer les informations des patients, les consultations, les traitements, ainsi que le suivi du personnel soignant et des hospitalisations. À terme, cette solution devait servir de base pour l’intégration de fonctionnalités d’intelligence artificielle.",
