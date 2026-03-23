@@ -159,10 +159,11 @@
 </nav>
 <div class="container">
   <div class="stats-bar">
-    <div class="stat-item"><span class="stat-number">28+</span><span class="stat-label">Projets</span></div>
-    <div class="stat-item"><span class="stat-number">15+</span><span class="stat-label">Domaines</span></div>
+    <div class="stat-item"><span class="stat-number">8+</span><span class="stat-label">Expériences</span></div>
+    <div class="stat-item"><span class="stat-number">32+</span><span class="stat-label">Projets</span></div>
+    <div class="stat-item"><span class="stat-number">17+</span><span class="stat-label">Domaines</span></div>
     <div class="stat-item"><span class="stat-number">38+</span><span class="stat-label">Technologies</span></div>
-    <div class="stat-item"><span class="stat-number">16+</span><span class="stat-label">Clients</span></div>
+    <div class="stat-item"><span class="stat-number">19+</span><span class="stat-label">Clients</span></div>
   </div>
 </div>
 <hr class="section-divider" />
@@ -366,133 +367,278 @@
     <div class="projects-grid" id="projects-grid">
       <div class="no-results" id="no-results">Aucun projet trouv&#233;.</div>
 
-      <!-- Projet : MOSST - ERP paie et RH -->
-      <div class="project-card" data-pid="mosst-erp" data-domains="dev rh erp cloud cicd" data-tags="nestjs react aws lambda s3 cloudfront cognito sns sqs nxdev bitbucket cicd scrum sentry payroll rh">
-        <img class="card-cover" src="herosection.svg" alt="MOSST - ERP paie et RH" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
-        <div class="card-cover-placeholder" style="display:none; background:linear-gradient(135deg,#2e2e1a,#4e4e3a);">🧾</div>
+      <div class="project-card" data-pid="wellmum" data-domains="cloud iac cicd po" data-tags="terraform aws github-actions nestjs fastapi nextjs ecs fargate rds efs github-projects">
+        <img class="card-cover" src="https://raw.githubusercontent.com/AnselmeG300/wellmum/main/architecture%20applicative%20wellmum.drawio.png" alt="Wellmum Architecture" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" /><div class="card-cover-placeholder" style="display:none; background:linear-gradient(135deg,#0a1628,#1a2a4a);">☁️</div>
         <div class="card-body">
-          <span class="card-domain domain-dev">Développement · RH · ERP · Cloud · CI/CD</span>
-          <h3><a href="https://payrollr.jaam.cloud" target="_blank">MOSST – Développement d’un ERP de gestion de la paie et des ressources humaines (RH/ Payroll)</a></h3>
-          <p class="card-desc">ERP paie/RH pour entreprises et cabinets : gestion employés, absences, fiches de paie, multi-rôles, déploiement AWS, CI/CD Bitbucket, NX Dev, Sentry.</p>
+          <span class="card-domain domain-cloud">Cloud AWS · IaC · CI/CD</span>
+          <h3><a href="https://github.com/AnselmeG300/wellmum" target="_blank">Wellmum — Architecture et déploiement automatisé d'une infrastructure HA (FemTech/Digital Health)</a></h3>
+          <p class="card-desc">Projet client réel : infrastructure AWS complète (Terraform Cloud + GitHub Actions). Multi-services NestJS/FastAPI/Next.js sur ECS Fargate, ALB, RDS PostgreSQL, EFS, KMS. Multi-env dev/prod.</p>
+          <div class="card-tags"><span class="tag tag-purple">Terraform Cloud</span>
+<span class="tag tag-orange">AWS ECS Fargate</span>
+<span class="tag tag-orange">RDS PostgreSQL</span>
+<span class="tag tag-orange">EFS</span>
+<span class="tag tag-orange">Amplify</span>
+<span class="tag tag-orange">WAF</span>
+<span class="tag tag-green">GitHub Actions</span>
+<span class="tag tag-red">NestJS</span>
+<span class="tag tag-red">FastAPI</span>
+<span class="tag tag-red">Next.js</span>
+<span class="tag tag-green">GitHub Projects &amp; Issues</span>
+<span class="tag tag-pink">Product Owner</span>
+</div>
+          <div class="card-footer">
+            <a class="btn-github" href="https://github.com/AnselmeG300/wellmum" target="_blank"><svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg> Repo</a>
+            <a class="btn-github" href="https://wellmum.app" target="_blank" style="border-color:var(--accent2);color:var(--accent2);">🌐 Production</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="project-card" data-pid="afriland-devops" data-domains="training devsecops cicd containers microservices" data-tags="docker gitlab-ci devops devsecops sonarqube trivy gitlab banking microservices">
+        <div class="card-cover-placeholder" style="background:linear-gradient(135deg,#0a1a2e,#0d2b4a);">🏦</div>
+        <div class="card-body">
+          <span class="card-domain domain-cicd">DevOps · DevSecOps · Formation</span>
+          <h3><a href="https://gitlab.com/AnselmeG300/alpinehelloworld" target="_blank">Afriland First Bank — Accompagnement à l’adoption des pratiques DevOps & DevSecOps (Banque/Services financiers)</a></h3>
+          <p class="card-desc">Accompagnement de la DSI d'Afriland First Bank (leader bancaire au Cameroun) dans la montée en compétences DevOps d'une équipe IT de 17 personne...</p>
+          <div class="card-tags"><span class="tag tag-blue">Docker</span>
+<span class="tag tag-blue">Docker Compose</span>
+<span class="tag tag-blue">Docker Swarm</span>
+<span class="tag tag-cyan">GitLab CI/CD</span>
+<span class="tag tag-cyan">GitFlow</span>
+<span class="tag tag-green">SonarQube</span>
+<span class="tag tag-green">Trivy</span>
+<span class="tag tag-purple">DevSecOps</span>
+<span class="tag tag-cyan">GitLab</span>
+</div>
+          <div class="card-footer">
+            <a class="btn-github" href="https://gitlab.com/AnselmeG300/alpinehelloworld" target="_blank"><svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg> Repo</a>
+          </div>
+        </div>
+      </div>
+
+       <div class="project-card" data-pid="eazyskills-app" data-domains="dev cloud iac cicd po" data-tags="fastapi python chatgpt openai sqlite aws lambda amplify github-actions terraform ansible edtech ia github-projects">
+        <img class="card-cover" src="eazyskills.png" alt="EAZYSkills GenAI" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" /><div class="card-cover-placeholder" style="display:none; background:linear-gradient(135deg,#0a2e1a,#1a4e3a);">🎓</div>
+        <div class="card-body">
+          <span class="card-domain domain-dev">Dev · Cloud AWS · CI/CD · IaC</span>
+          <h3><a href="https://github.com/AnselmeG300/eazyskills-app" target="_blank">EAZYSkills — Application d’orientation des apprenants par IA générative (EdTech/GenAI)</a></h3>
+          <p class="card-desc">Application EdTech publique recommandant automatiquement des parcours de formation via l'IA (ChatGPT). Backend FastAPI + SQLite embarquée sur AWS Lambda, frontend validé et déployé sur AWS Amplify. Pipeline GitHub Actions + Terraform Cloud + Ansible. En production : <a href="https://eazyskills.eazytraining.fr" target="_blank" style="color:var(--accent);">eazyskills.eazytraining.fr</a></p>
           <div class="card-tags">
-            <span class="tag tag-red">NestJS</span>
-            <span class="tag tag-blue">React</span>
+            <span class="tag tag-red">FastAPI</span>
+            <span class="tag tag-red">Python</span>
+            <span class="tag tag-cyan">ChatGPT / OpenAI</span>
             <span class="tag tag-orange">AWS Lambda</span>
-            <span class="tag tag-orange">API Gateway</span>
-            <span class="tag tag-orange">S3</span>
-            <span class="tag tag-orange">CloudFront</span>
-            <span class="tag tag-green">Cognito</span>
-            <span class="tag tag-green">SNS</span>
-            <span class="tag tag-green">SQS</span>
-            <span class="tag tag-purple">NX Dev</span>
-            <span class="tag tag-blue">Bitbucket Pipeline</span>
-            <span class="tag tag-green">CI/CD</span>
-            <span class="tag tag-purple">Scrum</span>
-            <span class="tag tag-orange">Sentry</span>
-            <span class="tag tag-blue">RH</span>
-            <span class="tag tag-blue">Payroll</span>
+            <span class="tag tag-orange">AWS Amplify</span>
+            <span class="tag tag-green">GitHub Actions</span>
+            <span class="tag tag-purple">Terraform Cloud</span>
+            <span class="tag tag-purple">Ansible</span>
+            <span class="tag tag-red">SQLite</span>
+            <span class="tag tag-green">GitHub Projects &amp; Issues</span>
+            <span class="tag tag-pink">Product Owner</span>
           </div>
           <div class="card-footer">
-            <a class="btn-github" href="https://payrollr.jaam.cloud" target="_blank" style="border-color:var(--accent2);color:var(--accent2);">🌐 Production</a>
+            <a class="btn-github" href="https://github.com/AnselmeG300/eazyskills-app" target="_blank"><svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg> Repo</a>
+            <a class="btn-github" href="https://eazyskills.eazytraining.fr" target="_blank" style="border-color:var(--accent2);color:var(--accent2);">🌐 Production</a>
           </div>
         </div>
       </div>
-      <!-- Projet : Wan’Advisory - Site vitrine -->
-      <div class="project-card" data-pid="wanadvisory" data-domains="dev conseil cloud" data-tags="html css aws s3 cloudfront vitrine contact">
-        <img class="card-cover" src="advaisory.png" alt="Wan’Advisory - Site vitrine" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
-        <div class="card-cover-placeholder" style="display:none; background:linear-gradient(135deg,#2e2e1a,#4e4e3a);">💼</div>
+      
+      <div class="project-card" data-pid="eazyskills-catalog" data-domains="cicd" data-tags="yaml github-actions database platform">
+        <div class="card-cover-placeholder" style="background:linear-gradient(135deg,#1a1a0a,#3a3a1a);">📚</div>
         <div class="card-body">
-          <span class="card-domain domain-dev">Développement · Conseil · Cloud</span>
-          <h3><a href="https://wanadvisory.fr/" target="_blank">Développement et déploiement du site vitrine de Wan’Advisory (Conseil en transformation digitale)</a></h3>
-          <p class="card-desc">Site vitrine pour Wan’Advisory : présentation des services, valorisation de l’expertise, formulaire de contact, déploiement sur AWS S3 + CloudFront.</p>
-          <div class="card-tags">
-            <span class="tag tag-red">HTML</span>
-            <span class="tag tag-blue">CSS</span>
-            <span class="tag tag-orange">AWS S3</span>
-            <span class="tag tag-orange">CloudFront</span>
-            <span class="tag tag-green">Vitrine</span>
-            <span class="tag tag-purple">Contact</span>
-          </div>
+          <span class="card-domain domain-cicd">CI/CD · EdTech</span>
+          <h3><a href="https://github.com/AnselmeG300/eazyskills-catalog" target="_blank">EazySkills Catalog — Données Plateforme</a></h3>
+          <p class="card-desc">Source de vérité pour EazySkills : cours, parcours, bootcamps en YAML. GitHub Actions pour validation et déploiement automatique en base.</p>
+          <div class="card-tags"><span class="tag tag-cyan">YAML</span>
+<span class="tag tag-green">GitHub Actions</span>
+<span class="tag tag-orange">Base de données</span>
+</div>
           <div class="card-footer">
-            <a class="btn-github" href="https://wanadvisory.fr/" target="_blank" style="border-color:var(--accent2);color:var(--accent2);">🌐 Production</a>
+            <a class="btn-github" href="https://github.com/AnselmeG300/eazyskills-catalog" target="_blank"><svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg> Repo</a>
           </div>
         </div>
       </div>
-      <!-- Projet : YOWYOB ERP (anciennement KSM) -->
-      <div class="project-card" data-pid="yowyob-erp" data-domains="dev commerce plateforme" data-tags="django rest erp commerce react on-premise scrum gestion-equipe">
-        <img class="card-cover" src="yowyob erp.png" alt="YOWYOB ERP (anciennement KSM)" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
-        <div class="card-cover-placeholder" style="display:none; background:linear-gradient(135deg,#2e2e1a,#4e4e3a);">💼</div>
+
+      <div class="project-card" data-pid="notifications-bancaires" data-domains="cloud dev po" data-tags="aws lambda dynamodb api-gateway ses eventbridge terraform github-actions django revolut serverless fintech github-projects">
+        <img class="card-cover" src="https://raw.githubusercontent.com/AnselmeG300/notification-transactions-aws-sdk/main/Architecture%20App.png" alt="EAZYCard Architecture" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" /><div class="card-cover-placeholder" style="display:none; background:linear-gradient(135deg,#1a1a0a,#2a2a1a);">💳</div>
         <div class="card-body">
-          <span class="card-domain domain-dev">Développement · Commerce · Plateforme</span>
-          <h3>YOWYOB ERP (anciennement KSM) – Réingénierie d’un ERP de gestion commerciale et opérationnelle (Commerce)</h3>
-          <p class="card-desc">ERP modulaire pour LIRIMA : gestion produits, partenaires, stocks, opérations commerciales, échéances de paiement. Backend Django REST, frontend React, déploiement on-premise.</p>
-          <div class="card-tags">
-            <span class="tag tag-red">Django</span>
-            <span class="tag tag-blue">Django REST</span>
-            <span class="tag tag-orange">ERP</span>
-            <span class="tag tag-green">Commerce</span>
-            <span class="tag tag-blue">React</span>
-            <span class="tag tag-purple">On-premise</span>
-            <span class="tag tag-green">Scrum</span>
-            <span class="tag tag-blue">Gestion d'équipe</span>
-          </div>
+          <span class="card-domain domain-cloud">FinTech · Serverless</span>
+          <h3><a href="https://github.com/AnselmeG300/notification-transactions-aws-sdk" target="_blank">EAZYCard — API FinTech de gestion de cartes virtuelles Revolut (FinTech)</a></h3>
+          <p class="card-desc">API FinTech (Django REST) avec intégration Revolut, webhooks temps réel, notifications SES, architecture serverless AWS et déploiement automatisé via Terraform & GitHub Actions.</p>
+          <div class="card-tags"><span class="tag tag-red">Django REST</span>
+<span class="tag tag-orange">AWS Lambda</span>
+<span class="tag tag-orange">API Gateway</span>
+<span class="tag tag-orange">DynamoDB</span>
+<span class="tag tag-orange">SES</span>
+<span class="tag tag-orange">EventBridge</span>
+<span class="tag tag-purple">Terraform</span>
+<span class="tag tag-green">GitHub Actions</span>
+<span class="tag tag-green">GitHub Projects &amp; Issues</span>
+<span class="tag tag-pink">Product Owner</span>
+</div>
           <div class="card-footer">
-            <a class="btn-github" href="https://agrofeed.yowyob.com" target="_blank" style="border-color:var(--accent2);color:var(--accent2);">🌐 Backend</a>
-            <a class="btn-github" href="https://acma.pythonanywhere.com" target="_blank" style="border-color:var(--accent2);color:var(--accent2);">🌐 Production</a>
+            <a class="btn-github" href="https://github.com/AnselmeG300/notification-transactions-aws-sdk" target="_blank"><svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg> Repo</a>
           </div>
         </div>
       </div>
-      <!-- Projet : GESTIMMO - Application de gestion immobilière -->
-      <div class="project-card" data-pid="gestimmo" data-domains="dev immobilier" data-tags="wordpress immobilier annonces planetHoster rendez-vous cloud">
-        <img class="card-cover" src="immobilier.png" alt="GESTIMMO - Application de gestion immobilière" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
-        <div class="card-cover-placeholder" style="display:none; background:linear-gradient(135deg,#2e2e1a,#4e4e3a);">🏠</div>
+
+      <div class="project-card" data-pid="deploy-semaphore" data-domains="cloud iac containers po microservices" data-tags="aws ecs fargate terraform semaphore ansible mysql github-actions platform-engineering github-projects microservices">
+        <img class="card-cover" src="https://raw.githubusercontent.com/AnselmeG300/deploy-semaphore-ecs/main/architecture/Deploy%20ECS.drawio.png" alt="Ansible Semaphore ECS Architecture" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" /><div class="card-cover-placeholder" style="display:none; background:linear-gradient(135deg,#0a2818,#1a3828);">⚙️</div>
         <div class="card-body">
-          <span class="card-domain domain-dev">Développement · Immobilier</span>
-          <h3>GESTIMMO – Application de gestion immobilière (Gestion immobilière / Immobilier)</h3>
-          <p class="card-desc">Application interne pour StormIT : gestion et présentation d’annonces immobilières, création de comptes clients, prise de rendez-vous, déploiement sur PlanetHoster.</p>
+          <span class="card-domain domain-cloud">DevOps · Platform Engineering</span>
+          <h3><a href="https://github.com/AnselmeG300/deploy-semaphore-ecs" target="_blank">Ansible Semaphore — Plateforme interne d’automatisation des opérations IT (DevOps / Platform Engineering)</a></h3>
+          <p class="card-desc">Plateforme interne self-service (Semaphore UI) déployée sur AWS ECS Fargate avec Terraform & GitHub Actions. Architecture HA : ALB, Auto Scaling, MySQL conteneurisé, accès SSH restreint.</p>
+          <div class="card-tags"><span class="tag tag-purple">Ansible</span>
+<span class="tag tag-orange">AWS ECS Fargate</span>
+<span class="tag tag-purple">Terraform</span>
+<span class="tag tag-green">GitHub Actions</span>
+<span class="tag tag-orange">ALB</span>
+<span class="tag tag-blue">Docker</span>
+<span class="tag tag-red">MySQL</span>
+<span class="tag tag-green">GitHub Projects &amp; Issues</span>
+</div>
+          <div class="card-footer">
+            <a class="btn-github" href="https://github.com/AnselmeG300/deploy-semaphore-ecs" target="_blank"><svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg> Repo</a>
+            <a class="btn-github" href="https://ansible.eazytraining.fr" target="_blank" style="border-color:var(--accent2);color:var(--accent2);">🌐 Production</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="project-card" data-pid="neero-cost-optimization" data-domains="cloud" data-tags="aws eks ec2 kubernetes cost-optimization savings-plans cloudwatch fintech">
+        <img class="card-cover" src="fdte.png" alt="Neero AWS Cost Optimization" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" /><div class="card-cover-placeholder" style="display:none; background:linear-gradient(135deg,#0a1a2e,#1a2a3e);">💸</div>
+        <div class="card-body">
+          <span class="card-domain domain-cloud">FinTech · Cloud AWS</span>
+          <h3><a href="https://neero.io" target="_blank">Optimisation des coûts d'infrastructure – Neero</a></h3>
+          <p class="card-desc">Audit et optimisation de l'infrastructure AWS de Neero (EKS + EC2, ~4 000 €/mois). Rightsizing, suppression de ressources inutilisées, Compute Savings Plans, gestion...</p>
+          <div class="card-tags"><span class="tag tag-orange">AWS EKS</span>
+<span class="tag tag-orange">EC2</span>
+<span class="tag tag-blue">Kubernetes</span>
+<span class="tag tag-orange">Savings Plans</span>
+<span class="tag tag-orange">CloudWatch</span>
+<span class="tag tag-cyan">FinOps</span>
+</div>
+          <div class="card-footer">
+            <a class="btn-github" href="https://neero.io" target="_blank" style="border-color:var(--accent2);color:var(--accent2);">&#127760; Production</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="project-card" data-pid="migration-eazytraining" data-domains="cloud iac" data-tags="aws ec2 alb asg terraform github-actions cloudwatch lambda eventbridge finops cost-optimization iac migration">
+        <img class="card-cover" src="Migration.png" alt="Refonte &amp; migration AWS" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" /><div class="card-cover-placeholder" style="display:none; background:linear-gradient(135deg,#0a2a1a,#1a4a2a);">&#128640;</div>
+        <div class="card-body">
+          <span class="card-domain domain-cloud">Cloud AWS &middot; IaC &middot; FinOps</span>
+          <h3>Refonte &amp; migration d&#8217;infrastructures AWS &ndash; Transformation IaC et optimisation des co&#251;ts</h3>
+          <p class="card-desc">Refonte compl&egrave;te et migration des plateformes EAZYLabs et EAZYTraining vers eu-west-1. Mise sous IaC (Terraform), audit FinOps, politique de sauvegarde cibl&eacute;e, Compute Savings Plans. R&eacute;duction de 50 % de la facture.</p>
+          <div class="card-tags"><span class="tag tag-purple">Terraform</span>
+<span class="tag tag-green">GitHub Actions</span>
+<span class="tag tag-orange">EC2 / ALB / ASG</span>
+<span class="tag tag-orange">AWS Lambda</span>
+<span class="tag tag-orange">EventBridge</span>
+<span class="tag tag-orange">CloudWatch</span>
+<span class="tag tag-cyan">FinOps</span>
+</div>
+          <div class="card-footer">
+            <div class="links-dropdown">
+              <button class="links-dropdown-btn" onclick="toggleLinksDropdown(this)"><svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg> Repos <em class="arrow">▾</em></button>
+              <div class="links-dropdown-panel">
+                <a class="btn-github" href="https://github.com/AnselmeG300/migration-eazytraining" target="_blank"><svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg> Repo EAZYTraining</a>
+                <a class="btn-github" href="https://github.com/AnselmeG300/migration-eazylabs" target="_blank"><svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg> Repo EAZYLabs</a>
+              </div>
+            </div>
+            <div class="links-dropdown">
+              <button class="links-dropdown-btn" onclick="toggleLinksDropdown(this)" style="border-color:var(--accent2);color:var(--accent2)">🌐 Productions <em class="arrow">▾</em></button>
+              <div class="links-dropdown-panel" style="left:auto;right:0">
+                <a class="btn-github" href="https://eazytraining.fr" target="_blank" style="border-color:var(--accent2);color:var(--accent2)">🌐 eazytraining.fr</a>
+                <a class="btn-github" href="https://docker.labs.eazytraining.fr" target="_blank" style="border-color:var(--accent2);color:var(--accent2)">🌐 docker.labs.eazytraining.fr</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="project-card" data-pid="pilotage-formations" data-domains="training management po microservices" data-tags="docker kubernetes ansible jenkins gitlab terraform aws python github-projects gitlab-project microsoft-teams management edtech github microservices">
+        <div class="card-cover"><img src="microsoft%20planner.png" alt="Pilotage formations" style="width:100%;height:100%;object-fit:cover;"></div>
+        <div class="card-body">
+          <span class="card-domain domain-training">Formation &middot; Management &middot; EdTech</span>
+          <h3>Pilotage de programmes de formation &ndash; Cloud, DevOps &amp; DevSecOps</h3>
+          <p class="card-desc">Pilotage d&rsquo;une &eacute;quipe de 4 personnes et coordination de formateurs externes pour EAZYTraining et ses partenaires (M2i, Data Scientest, SPARK, IForm). +180 apprenants form&eacute;s, +200 orientations professionnelles, 11 parcours d&eacute;ploy&eacute;s.</p>
           <div class="card-tags">
+            <span class="tag tag-orange">AWS</span>
+            <span class="tag tag-blue">Docker</span>
+            <span class="tag tag-blue">Kubernetes</span>
+            <span class="tag tag-purple">Ansible</span>
+            <span class="tag tag-green">Jenkins</span>
+            <span class="tag tag-cyan">GitLab</span>
+            <span class="tag tag-purple">Terraform</span>
+            <span class="tag tag-red">Python</span>
+            <span class="tag tag-green">GitHub Projects</span>
+            <span class="tag tag-cyan">GitLab Project</span>
+            <span class="tag tag-green">GitHub</span>
+            <span class="tag tag-pink">Product Owner</span>
+          </div>
+          <div class="card-footer"></div>
+        </div>
+      </div>
+
+
+      <!-- Projet : ArcheTutoring -->
+      <div class="project-card" data-pid="archetutoring" data-domains="po dev edtech" data-tags="wordpress vitrine godaddy gitlab product-owner gitlab-project gitlab-issue gitlab-board gitlab-milestone gitlab-epic gitlab-roadmap">
+        <img class="card-cover" src="Archteturoring.png" alt="ArcheTutoring" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+        <div class="card-cover-placeholder" style="display:none; background:linear-gradient(135deg,#1a2e4a,#3a4e8e);">🎓</div>
+        <div class="card-body">
+          <span class="card-domain domain-po">Plateforme · Formation · Product Owner</span>
+          <h3><a href="https://arche-tutoring.be/" target="_blank">ArcheTutoring – Mise en place d’une plateforme web (EdTech / Préparation académique)</a></h3>
+          <p class="card-desc">Site vitrine pour une startup belge spécialisée dans la préparation aux concours de médecine. Accès aux contenus pédagogiques et découverte des offres...</p>
+          <div class="card-tags">
+            <span class="tag tag-pink">Product Owner</span>
             <span class="tag tag-red">WordPress</span>
-            <span class="tag tag-green">Immobilier</span>
-            <span class="tag tag-blue">Annonces</span>
-            <span class="tag tag-purple">Rendez-vous</span>
-            <span class="tag tag-green">PlanetHoster</span>
-            <span class="tag tag-blue">Cloud</span>
+            <span class="tag tag-orange">GoDaddy</span>
+            <span class="tag tag-green">GitLab</span>
+            <span class="tag tag-green">GitLab Project</span>
+            <span class="tag tag-green">GitLab Issue</span>
+            <span class="tag tag-green">GitLab Board</span>
+            <span class="tag tag-green">GitLab Milestone</span>
+            <span class="tag tag-green">GitLab Epic</span>
+            <span class="tag tag-green">GitLab Roadmap</span>
           </div>
           <div class="card-footer">
-            <!-- Bouton de déploiement supprimé -->
+            <a class="btn-github" href="https://arche-tutoring.be/" target="_blank" style="border-color:var(--accent2);color:var(--accent2);">🌐 Production</a>
           </div>
         </div>
       </div>
-      <!-- Projet : ACMA - Réingénierie d’un ERP de gestion scolaire -->
-      <div class="project-card" data-pid="acma-erp" data-domains="dev education plateforme" data-tags="django rest erp education planetHoster modularite refonte api">
-        <img class="card-cover" src="ACMA.png" alt="ACMA - Réingénierie d’un ERP de gestion scolaire" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
-        <div class="card-cover-placeholder" style="display:none; background:linear-gradient(135deg,#1a2e2e,#3a4e4e);">🏫</div>
+
+      <!-- Projet : Global Agency Voyage -->
+      <div class="project-card" data-pid="global-agency-voyage" data-domains="po dev services" data-tags="wordpress refonte hostinguer gitlab product-owner gitlab-project gitlab-issue gitlab-board gitlab-milestone gitlab-epic gitlab-roadmap">
+        <img class="card-cover" src="GVA.png" alt="Global Agency Voyage" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+        <div class="card-cover-placeholder" style="display:none; background:linear-gradient(135deg,#1a2e2a,#3a4e2e);">🌍</div>
         <div class="card-body">
-          <span class="card-domain domain-dev">Développement · Éducation · Plateforme</span>
-          <h3><a href="https://acma.pythonanywhere.com" target="_blank">ACMA – Réingénierie d’un ERP de gestion scolaire (Éducation / School Management)</a></h3>
-          <p class="card-desc">ERP scolaire modulaire (inscriptions, paiements, notes, emplois du temps, stocks). Refonte complète pour modularité, maintenabilité et évolutivité. Backend...</p>
+          <span class="card-domain domain-po">Développement · Plateforme · Product Owner</span>
+          <h3><a href="https://globalvoyageagency.com/" target="_blank">Global Agency Voyage – Refonte d’un site web (Services d’immigration / Éducation internationale)</a></h3>
+          <p class="card-desc">Refonte du site d'une entreprise belge d'accompagnement à l'immigration (études, travail). Amélioration de la visibilité, intégration WhatsApp, meilleure expérience utilisateur.</p>
           <div class="card-tags">
-            <span class="tag tag-red">Django</span>
-            <span class="tag tag-blue">Django REST</span>
-            <span class="tag tag-orange">ERP</span>
-            <span class="tag tag-green">Éducation</span>
-            <span class="tag tag-purple">Refonte</span>
-            <span class="tag tag-blue">API</span>
-            <span class="tag tag-green">PlanetHoster</span>
-            <span class="tag tag-purple">Modularité</span>
+            <span class="tag tag-pink">Product Owner</span>
+            <span class="tag tag-red">WordPress</span>
+            <span class="tag tag-orange">Hostinguer</span>
+            <span class="tag tag-green">GitLab</span>
+            <span class="tag tag-green">GitLab Project</span>
+            <span class="tag tag-green">GitLab Issue</span>
+            <span class="tag tag-green">GitLab Board</span>
+            <span class="tag tag-green">GitLab Milestone</span>
+            <span class="tag tag-green">GitLab Epic</span>
+            <span class="tag tag-green">GitLab Roadmap</span>
           </div>
           <div class="card-footer">
-            <a class="btn-github" href="https://acma.pythonanywhere.com" target="_blank" style="border-color:var(--accent2);color:var(--accent2);">🌐 Production</a>
+            <a class="btn-github" href="https://globalvoyageagency.com/" target="_blank" style="border-color:var(--accent2);color:var(--accent2);">🌐 Production</a>
           </div>
         </div>
       </div>
-      <!-- Projet : Application de gestion des patients -->
+
+      <!-- Projet : Développement d’une application de gestion des patients -->
       <div class="project-card" data-pid="clinic-manager-vision" data-domains="dev microservices sante" data-tags="django rest postgres ecs gitlab cicd sante esante">
         <img class="card-cover" src="CLMA.png" alt="Application de gestion des patients" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
         <div class="card-cover-placeholder" style="display:none; background:linear-gradient(135deg,#1a2e2e,#3a4e4e);">🏥</div>
         <div class="card-body">
           <span class="card-domain domain-dev">Développement · Microservices · Santé</span>
-          <h3><a href="https://clma.pythonanywhere.com" target="_blank">Application de gestion des patients – Clinique La Vision (Santé / e-santé)</a></h3>
+          <h3><a href="https://clma.pythonanywhere.com" target="_blank">Développement d’une application de gestion des patients – Clinique La Vision (Santé / e-santé)</a></h3>
           <p class="card-desc">Application de gestion du parcours patient pour la Clinique La Vision : centralisation des données médicales, suivi des hospitalisations, traçabilité des...</p>
           <div class="card-tags">
             <span class="tag tag-red">Django</span>
@@ -555,182 +701,153 @@
         </div>
       </div>
 
-      <!-- Projet : ArcheTutoring -->
-      <div class="project-card" data-pid="archetutoring" data-domains="po dev edtech" data-tags="wordpress vitrine godaddy gitlab product-owner gitlab-project gitlab-issue gitlab-board gitlab-milestone gitlab-epic gitlab-roadmap">
-        <img class="card-cover" src="Archteturoring.png" alt="ArcheTutoring" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
-        <div class="card-cover-placeholder" style="display:none; background:linear-gradient(135deg,#1a2e4a,#3a4e8e);">🎓</div>
+      <!-- Projet : MOSST - ERP paie et RH -->
+      <div class="project-card" data-pid="mosst-erp" data-domains="dev rh erp cloud cicd" data-tags="nestjs react aws lambda s3 cloudfront cognito sns sqs nxdev bitbucket cicd scrum sentry payroll rh">
+        <img class="card-cover" src="herosection.svg" alt="MOSST - ERP paie et RH" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+        <div class="card-cover-placeholder" style="display:none; background:linear-gradient(135deg,#2e2e1a,#4e4e3a);">🧾</div>
         <div class="card-body">
-          <span class="card-domain domain-po">Plateforme · Formation · Product Owner</span>
-          <h3><a href="https://arche-tutoring.be/" target="_blank">ArcheTutoring – Mise en place d’une plateforme web (EdTech / Préparation académique)</a></h3>
-          <p class="card-desc">Site vitrine pour une startup belge spécialisée dans la préparation aux concours de médecine. Accès aux contenus pédagogiques et découverte des offres...</p>
+          <span class="card-domain domain-dev">Développement · RH · ERP · Cloud · CI/CD</span>
+          <h3><a href="https://payrollr.jaam.cloud" target="_blank">MOSST – Développement d’un ERP de gestion de la paie et des ressources humaines (RH/ Payroll)</a></h3>
+          <p class="card-desc">ERP paie/RH pour entreprises et cabinets : gestion employés, absences, fiches de paie, multi-rôles, déploiement AWS, CI/CD Bitbucket, NX Dev, Sentry.</p>
           <div class="card-tags">
-            <span class="tag tag-pink">Product Owner</span>
-            <span class="tag tag-red">WordPress</span>
-            <span class="tag tag-orange">GoDaddy</span>
-            <span class="tag tag-green">GitLab</span>
-            <span class="tag tag-green">GitLab Project</span>
-            <span class="tag tag-green">GitLab Issue</span>
-            <span class="tag tag-green">GitLab Board</span>
-            <span class="tag tag-green">GitLab Milestone</span>
-            <span class="tag tag-green">GitLab Epic</span>
-            <span class="tag tag-green">GitLab Roadmap</span>
-          </div>
-          <div class="card-footer">
-            <a class="btn-github" href="https://arche-tutoring.be/" target="_blank" style="border-color:var(--accent2);color:var(--accent2);">🌐 Production</a>
-          </div>
-        </div>
-      </div>
-
-      <!-- Projet : Global Agency Voyage -->
-      <div class="project-card" data-pid="global-agency-voyage" data-domains="po dev services" data-tags="wordpress refonte hostinguer gitlab product-owner gitlab-project gitlab-issue gitlab-board gitlab-milestone gitlab-epic gitlab-roadmap">
-        <img class="card-cover" src="GVA.png" alt="Global Agency Voyage" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
-        <div class="card-cover-placeholder" style="display:none; background:linear-gradient(135deg,#1a2e2a,#3a4e2e);">🌍</div>
-        <div class="card-body">
-          <span class="card-domain domain-po">Développement · Plateforme · Product Owner</span>
-          <h3><a href="https://globalvoyageagency.com/" target="_blank">Global Agency Voyage – Refonte d’un site web (Services d’immigration / Éducation internationale)</a></h3>
-          <p class="card-desc">Refonte du site d'une entreprise belge d'accompagnement à l'immigration (études, travail). Amélioration de la visibilité, intégration WhatsApp, meilleure expérience utilisateur.</p>
-          <div class="card-tags">
-            <span class="tag tag-pink">Product Owner</span>
-            <span class="tag tag-red">WordPress</span>
-            <span class="tag tag-orange">Hostinguer</span>
-            <span class="tag tag-green">GitLab</span>
-            <span class="tag tag-green">GitLab Project</span>
-            <span class="tag tag-green">GitLab Issue</span>
-            <span class="tag tag-green">GitLab Board</span>
-            <span class="tag tag-green">GitLab Milestone</span>
-            <span class="tag tag-green">GitLab Epic</span>
-            <span class="tag tag-green">GitLab Roadmap</span>
-          </div>
-          <div class="card-footer">
-            <a class="btn-github" href="https://globalvoyageagency.com/" target="_blank" style="border-color:var(--accent2);color:var(--accent2);">🌐 Production</a>
-          </div>
-        </div>
-      </div>
-
-      <div class="project-card" data-pid="eazyskills-app" data-domains="dev cloud iac cicd po" data-tags="fastapi python chatgpt openai sqlite aws lambda amplify github-actions terraform ansible edtech ia github-projects">
-        <img class="card-cover" src="eazyskills.png" alt="EAZYSkills GenAI" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" /><div class="card-cover-placeholder" style="display:none; background:linear-gradient(135deg,#0a2e1a,#1a4e3a);">🎓</div>
-        <div class="card-body">
-          <span class="card-domain domain-dev">Dev · Cloud AWS · CI/CD · IaC</span>
-          <h3><a href="https://github.com/AnselmeG300/eazyskills-app" target="_blank">EAZYSkills — Application d’orientation des apprenants par IA générative (EdTech/GenAI)</a></h3>
-          <p class="card-desc">Application EdTech publique recommandant automatiquement des parcours de formation via l'IA (ChatGPT). Backend FastAPI + SQLite embarquée sur AWS Lambda, frontend validé et déployé sur AWS Amplify. Pipeline GitHub Actions + Terraform Cloud + Ansible. En production : <a href="https://eazyskills.eazytraining.fr" target="_blank" style="color:var(--accent);">eazyskills.eazytraining.fr</a></p>
-          <div class="card-tags">
-            <span class="tag tag-red">FastAPI</span>
-            <span class="tag tag-red">Python</span>
-            <span class="tag tag-cyan">ChatGPT / OpenAI</span>
+            <span class="tag tag-red">NestJS</span>
+            <span class="tag tag-blue">React</span>
             <span class="tag tag-orange">AWS Lambda</span>
-            <span class="tag tag-orange">AWS Amplify</span>
-            <span class="tag tag-green">GitHub Actions</span>
-            <span class="tag tag-purple">Terraform Cloud</span>
-            <span class="tag tag-purple">Ansible</span>
-            <span class="tag tag-red">SQLite</span>
-            <span class="tag tag-green">GitHub Projects &amp; Issues</span>
-            <span class="tag tag-pink">Product Owner</span>
+            <span class="tag tag-orange">API Gateway</span>
+            <span class="tag tag-orange">S3</span>
+            <span class="tag tag-orange">CloudFront</span>
+            <span class="tag tag-green">Cognito</span>
+            <span class="tag tag-green">SNS</span>
+            <span class="tag tag-green">SQS</span>
+            <span class="tag tag-purple">NX Dev</span>
+            <span class="tag tag-blue">Bitbucket Pipeline</span>
+            <span class="tag tag-green">CI/CD</span>
+            <span class="tag tag-purple">Scrum</span>
+            <span class="tag tag-orange">Sentry</span>
+            <span class="tag tag-blue">RH</span>
+            <span class="tag tag-blue">Payroll</span>
           </div>
           <div class="card-footer">
-            <a class="btn-github" href="https://github.com/AnselmeG300/eazyskills-app" target="_blank"><svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg> Repo</a>
-            <a class="btn-github" href="https://eazyskills.eazytraining.fr" target="_blank" style="border-color:var(--accent2);color:var(--accent2);">🌐 Production</a>
+            <a class="btn-github" href="https://payrollr.jaam.cloud" target="_blank" style="border-color:var(--accent2);color:var(--accent2);">🌐 Production</a>
           </div>
         </div>
       </div>
 
-      <div class="project-card" data-pid="wellmum" data-domains="cloud iac cicd po" data-tags="terraform aws github-actions nestjs fastapi nextjs ecs fargate rds efs github-projects">
-        <img class="card-cover" src="https://raw.githubusercontent.com/AnselmeG300/wellmum/main/architecture%20applicative%20wellmum.drawio.png" alt="Wellmum Architecture" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" /><div class="card-cover-placeholder" style="display:none; background:linear-gradient(135deg,#0a1628,#1a2a4a);">☁️</div>
+      <!-- Projet : Wan’Advisory - Site vitrine -->
+      <div class="project-card" data-pid="wanadvisory" data-domains="dev conseil cloud" data-tags="html css aws s3 cloudfront vitrine contact">
+        <img class="card-cover" src="advaisory.png" alt="Wan’Advisory - Site vitrine" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+        <div class="card-cover-placeholder" style="display:none; background:linear-gradient(135deg,#2e2e1a,#4e4e3a);">💼</div>
         <div class="card-body">
-          <span class="card-domain domain-cloud">Cloud AWS · IaC · CI/CD</span>
-          <h3><a href="https://github.com/AnselmeG300/wellmum" target="_blank">Wellmum — Architecture et déploiement automatisé d'une infrastructure HA (FemTech/Digital Health)</a></h3>
-          <p class="card-desc">Projet client réel : infrastructure AWS complète (Terraform Cloud + GitHub Actions). Multi-services NestJS/FastAPI/Next.js sur ECS Fargate, ALB, RDS PostgreSQL, EFS, KMS. Multi-env dev/prod.</p>
-          <div class="card-tags"><span class="tag tag-purple">Terraform Cloud</span>
-<span class="tag tag-orange">AWS ECS Fargate</span>
-<span class="tag tag-orange">RDS PostgreSQL</span>
-<span class="tag tag-orange">EFS</span>
-<span class="tag tag-orange">Amplify</span>
-<span class="tag tag-orange">WAF</span>
-<span class="tag tag-green">GitHub Actions</span>
-<span class="tag tag-red">NestJS</span>
-<span class="tag tag-red">FastAPI</span>
-<span class="tag tag-red">Next.js</span>
-<span class="tag tag-green">GitHub Projects &amp; Issues</span>
-<span class="tag tag-pink">Product Owner</span>
-</div>
-          <div class="card-footer">
-            <a class="btn-github" href="https://github.com/AnselmeG300/wellmum" target="_blank"><svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg> Repo</a>
-            <a class="btn-github" href="https://wellmum.app" target="_blank" style="border-color:var(--accent2);color:var(--accent2);">🌐 Production</a>
+          <span class="card-domain domain-dev">Développement · Conseil · Cloud</span>
+          <h3><a href="https://wanadvisory.fr/" target="_blank">Développement et déploiement du site vitrine de Wan’Advisory (Conseil en transformation digitale)</a></h3>
+          <p class="card-desc">Site vitrine pour Wan’Advisory : présentation des services, valorisation de l’expertise, formulaire de contact, déploiement sur AWS S3 + CloudFront.</p>
+          <div class="card-tags">
+            <span class="tag tag-red">HTML</span>
+            <span class="tag tag-blue">CSS</span>
+            <span class="tag tag-orange">AWS S3</span>
+            <span class="tag tag-orange">CloudFront</span>
+            <span class="tag tag-green">Vitrine</span>
+            <span class="tag tag-purple">Contact</span>
           </div>
-        </div>
-      </div>
-      <div class="project-card" data-pid="afriland-devops" data-domains="training devsecops cicd containers microservices" data-tags="docker gitlab-ci devops devsecops sonarqube trivy gitlab banking microservices">
-        <div class="card-cover-placeholder" style="background:linear-gradient(135deg,#0a1a2e,#0d2b4a);">🏦</div>
-        <div class="card-body">
-          <span class="card-domain domain-cicd">DevOps · DevSecOps · Formation</span>
-          <h3><a href="https://gitlab.com/AnselmeG300/alpinehelloworld" target="_blank">Afriland First Bank — Accompagnement à l’adoption des pratiques DevOps & DevSecOps (Banque/Services financiers)</a></h3>
-          <p class="card-desc">Accompagnement de la DSI d'Afriland First Bank (leader bancaire au Cameroun) dans la montée en compétences DevOps d'une équipe IT de 17 personne...</p>
-          <div class="card-tags"><span class="tag tag-blue">Docker</span>
-<span class="tag tag-blue">Docker Compose</span>
-<span class="tag tag-blue">Docker Swarm</span>
-<span class="tag tag-cyan">GitLab CI/CD</span>
-<span class="tag tag-cyan">GitFlow</span>
-<span class="tag tag-green">SonarQube</span>
-<span class="tag tag-green">Trivy</span>
-<span class="tag tag-purple">DevSecOps</span>
-<span class="tag tag-cyan">GitLab</span>
-</div>
           <div class="card-footer">
-            <a class="btn-github" href="https://gitlab.com/AnselmeG300/alpinehelloworld" target="_blank"><svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg> Repo</a>
+            <a class="btn-github" href="https://wanadvisory.fr/" target="_blank" style="border-color:var(--accent2);color:var(--accent2);">🌐 Production</a>
           </div>
         </div>
       </div>
 
-      <div class="project-card" data-pid="neero-cost-optimization" data-domains="cloud" data-tags="aws eks ec2 kubernetes cost-optimization savings-plans cloudwatch fintech">
-        <img class="card-cover" src="fdte.png" alt="Neero AWS Cost Optimization" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" /><div class="card-cover-placeholder" style="display:none; background:linear-gradient(135deg,#0a1a2e,#1a2a3e);">💸</div>
+      <!-- Projet : ACMA - Réingénierie d’un ERP de gestion scolaire -->
+      <div class="project-card" data-pid="acma-erp" data-domains="dev education plateforme" data-tags="django rest erp education planetHoster modularite refonte api">
+        <img class="card-cover" src="ACMA.png" alt="ACMA - Réingénierie d’un ERP de gestion scolaire" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+        <div class="card-cover-placeholder" style="display:none; background:linear-gradient(135deg,#1a2e2e,#3a4e4e);">🏫</div>
         <div class="card-body">
-          <span class="card-domain domain-cloud">FinTech · Cloud AWS</span>
-          <h3><a href="https://neero.io" target="_blank">Optimisation des coûts d'infrastructure – Neero</a></h3>
-          <p class="card-desc">Audit et optimisation de l'infrastructure AWS de Neero (EKS + EC2, ~4 000 €/mois). Rightsizing, suppression de ressources inutilisées, Compute Savings Plans, gestion...</p>
-          <div class="card-tags"><span class="tag tag-orange">AWS EKS</span>
-<span class="tag tag-orange">EC2</span>
-<span class="tag tag-blue">Kubernetes</span>
-<span class="tag tag-orange">Savings Plans</span>
-<span class="tag tag-orange">CloudWatch</span>
-<span class="tag tag-cyan">FinOps</span>
-</div>
+          <span class="card-domain domain-dev">Développement · Éducation · Plateforme</span>
+          <h3><a href="https://acma.pythonanywhere.com" target="_blank">ACMA – Réingénierie d’un ERP de gestion scolaire (Éducation / School Management)</a></h3>
+          <p class="card-desc">ERP scolaire modulaire (inscriptions, paiements, notes, emplois du temps, stocks). Refonte complète pour modularité, maintenabilité et évolutivité. Backend...</p>
+          <div class="card-tags">
+            <span class="tag tag-red">Django</span>
+            <span class="tag tag-blue">Django REST</span>
+            <span class="tag tag-orange">ERP</span>
+            <span class="tag tag-green">Éducation</span>
+            <span class="tag tag-purple">Refonte</span>
+            <span class="tag tag-blue">API</span>
+            <span class="tag tag-green">PlanetHoster</span>
+            <span class="tag tag-purple">Modularité</span>
+          </div>
           <div class="card-footer">
-            <a class="btn-github" href="https://neero.io" target="_blank" style="border-color:var(--accent2);color:var(--accent2);">&#127760; Production</a>
+            <a class="btn-github" href="https://acma.pythonanywhere.com" target="_blank" style="border-color:var(--accent2);color:var(--accent2);">🌐 Production</a>
           </div>
         </div>
       </div>
 
-      <div class="project-card" data-pid="migration-eazytraining" data-domains="cloud iac" data-tags="aws ec2 alb asg terraform github-actions cloudwatch lambda eventbridge finops cost-optimization iac migration">
-        <img class="card-cover" src="Migration.png" alt="Refonte &amp; migration AWS" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" /><div class="card-cover-placeholder" style="display:none; background:linear-gradient(135deg,#0a2a1a,#1a4a2a);">&#128640;</div>
+      <!-- Projet : GESTIMMO - Application de gestion immobilière -->
+      <div class="project-card" data-pid="gestimmo" data-domains="dev immobilier" data-tags="wordpress immobilier annonces planetHoster rendez-vous cloud">
+        <img class="card-cover" src="immobilier.png" alt="GESTIMMO - Application de gestion immobilière" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+        <div class="card-cover-placeholder" style="display:none; background:linear-gradient(135deg,#2e2e1a,#4e4e3a);">🏠</div>
         <div class="card-body">
-          <span class="card-domain domain-cloud">Cloud AWS &middot; IaC &middot; FinOps</span>
-          <h3>Refonte &amp; migration d&#8217;infrastructures AWS &ndash; Transformation IaC et optimisation des co&#251;ts</h3>
-          <p class="card-desc">Refonte compl&egrave;te et migration des plateformes EAZYLabs et EAZYTraining vers eu-west-1. Mise sous IaC (Terraform), audit FinOps, politique de sauvegarde cibl&eacute;e, Compute Savings Plans. R&eacute;duction de 50 % de la facture.</p>
-          <div class="card-tags"><span class="tag tag-purple">Terraform</span>
-<span class="tag tag-green">GitHub Actions</span>
-<span class="tag tag-orange">EC2 / ALB / ASG</span>
-<span class="tag tag-orange">AWS Lambda</span>
-<span class="tag tag-orange">EventBridge</span>
-<span class="tag tag-orange">CloudWatch</span>
-<span class="tag tag-cyan">FinOps</span>
-</div>
+          <span class="card-domain domain-dev">Développement · Immobilier</span>
+          <h3>GESTIMMO – Application de gestion immobilière (Gestion immobilière / Immobilier)</h3>
+          <p class="card-desc">Application interne pour StormIT : gestion et présentation d’annonces immobilières, création de comptes clients, prise de rendez-vous, déploiement sur PlanetHoster.</p>
+          <div class="card-tags">
+            <span class="tag tag-red">WordPress</span>
+            <span class="tag tag-green">Immobilier</span>
+            <span class="tag tag-blue">Annonces</span>
+            <span class="tag tag-purple">Rendez-vous</span>
+            <span class="tag tag-green">PlanetHoster</span>
+            <span class="tag tag-blue">Cloud</span>
+          </div>
           <div class="card-footer">
-            <div class="links-dropdown">
-              <button class="links-dropdown-btn" onclick="toggleLinksDropdown(this)"><svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg> Repos <em class="arrow">▾</em></button>
-              <div class="links-dropdown-panel">
-                <a class="btn-github" href="https://github.com/AnselmeG300/migration-eazytraining" target="_blank"><svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg> Repo EAZYTraining</a>
-                <a class="btn-github" href="https://github.com/AnselmeG300/migration-eazylabs" target="_blank"><svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg> Repo EAZYLabs</a>
-              </div>
-            </div>
-            <div class="links-dropdown">
-              <button class="links-dropdown-btn" onclick="toggleLinksDropdown(this)" style="border-color:var(--accent2);color:var(--accent2)">🌐 Productions <em class="arrow">▾</em></button>
-              <div class="links-dropdown-panel" style="left:auto;right:0">
-                <a class="btn-github" href="https://eazytraining.fr" target="_blank" style="border-color:var(--accent2);color:var(--accent2)">🌐 eazytraining.fr</a>
-                <a class="btn-github" href="https://docker.labs.eazytraining.fr" target="_blank" style="border-color:var(--accent2);color:var(--accent2)">🌐 docker.labs.eazytraining.fr</a>
-              </div>
-            </div>
+            <!-- Bouton de déploiement supprimé -->
           </div>
         </div>
       </div>
+
+      <!-- Projet : YOWYOB ERP (anciennement KSM) -->
+      <div class="project-card" data-pid="yowyob-erp" data-domains="dev commerce plateforme" data-tags="django rest erp commerce react on-premise scrum gestion-equipe">
+        <img class="card-cover" src="yowyob erp.png" alt="YOWYOB ERP (anciennement KSM)" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+        <div class="card-cover-placeholder" style="display:none; background:linear-gradient(135deg,#2e2e1a,#4e4e3a);">💼</div>
+        <div class="card-body">
+          <span class="card-domain domain-dev">Développement · Commerce · Plateforme</span>
+          <h3>YOWYOB ERP (anciennement KSM) – Réingénierie d’un ERP de gestion commerciale et opérationnelle (Commerce)</h3>
+          <p class="card-desc">ERP modulaire pour LIRIMA : gestion produits, partenaires, stocks, opérations commerciales, échéances de paiement. Backend Django REST, frontend React, déploiement on-premise.</p>
+          <div class="card-tags">
+            <span class="tag tag-red">Django</span>
+            <span class="tag tag-blue">Django REST</span>
+            <span class="tag tag-orange">ERP</span>
+            <span class="tag tag-green">Commerce</span>
+            <span class="tag tag-blue">React</span>
+            <span class="tag tag-purple">On-premise</span>
+            <span class="tag tag-green">Scrum</span>
+            <span class="tag tag-blue">Gestion d'équipe</span>
+          </div>
+          <div class="card-footer">
+            <a class="btn-github" href="https://agrofeed.yowyob.com" target="_blank" style="border-color:var(--accent2);color:var(--accent2);">🌐 Backend</a>
+            <a class="btn-github" href="https://acma.pythonanywhere.com" target="_blank" style="border-color:var(--accent2);color:var(--accent2);">🌐 Production</a>
+          </div>
+        </div>
+      </div>
+      
+      
+      
+      
+      
+      
+
+      
+
+      
+
+      
+
+      
+
+     
+
+      
+      
+
+      
+
+      
 
       <div class="project-card" data-pid="jenkins-springboot" data-domains="cicd devsecops cloud iac microservices" data-tags="java spring-boot jenkins docker terraform sonarcloud aws microservices">
         <img class="card-cover" src="https://raw.githubusercontent.com/AnselmeG300/jenkins-CICD-spring-boot-app/main/CICD%20Jenkins.png" alt="Jenkins CI/CD Spring Boot" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" /><div class="card-cover-placeholder" style="display:none; background:linear-gradient(135deg,#1a2a1a,#162216);">🚀</div>
@@ -754,28 +871,7 @@
         </div>
       </div>
 
-      <div class="project-card" data-pid="notifications-bancaires" data-domains="cloud dev po" data-tags="aws lambda dynamodb api-gateway ses eventbridge terraform github-actions django revolut serverless fintech github-projects">
-        <img class="card-cover" src="https://raw.githubusercontent.com/AnselmeG300/notification-transactions-aws-sdk/main/Architecture%20App.png" alt="EAZYCard Architecture" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" /><div class="card-cover-placeholder" style="display:none; background:linear-gradient(135deg,#1a1a0a,#2a2a1a);">💳</div>
-        <div class="card-body">
-          <span class="card-domain domain-cloud">FinTech · Serverless</span>
-          <h3><a href="https://github.com/AnselmeG300/notification-transactions-aws-sdk" target="_blank">EAZYCard — API FinTech de gestion de cartes virtuelles Revolut (FinTech)</a></h3>
-          <p class="card-desc">API FinTech (Django REST) avec intégration Revolut, webhooks temps réel, notifications SES, architecture serverless AWS et déploiement automatisé via Terraform & GitHub Actions.</p>
-          <div class="card-tags"><span class="tag tag-red">Django REST</span>
-<span class="tag tag-orange">AWS Lambda</span>
-<span class="tag tag-orange">API Gateway</span>
-<span class="tag tag-orange">DynamoDB</span>
-<span class="tag tag-orange">SES</span>
-<span class="tag tag-orange">EventBridge</span>
-<span class="tag tag-purple">Terraform</span>
-<span class="tag tag-green">GitHub Actions</span>
-<span class="tag tag-green">GitHub Projects &amp; Issues</span>
-<span class="tag tag-pink">Product Owner</span>
-</div>
-          <div class="card-footer">
-            <a class="btn-github" href="https://github.com/AnselmeG300/notification-transactions-aws-sdk" target="_blank"><svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg> Repo</a>
-          </div>
-        </div>
-      </div>
+      
 
       <div class="project-card" data-pid="jenkins-flask" data-domains="cicd dev microservices" data-tags="python flask jenkins docker heroku microservices">
         <div class="card-cover-placeholder" style="background:linear-gradient(135deg,#1a1a2e,#16213e);">🐍</div>
@@ -860,27 +956,7 @@
 
       
 
-      <div class="project-card" data-pid="deploy-semaphore" data-domains="cloud iac containers po microservices" data-tags="aws ecs fargate terraform semaphore ansible mysql github-actions platform-engineering github-projects microservices">
-        <img class="card-cover" src="https://raw.githubusercontent.com/AnselmeG300/deploy-semaphore-ecs/main/architecture/Deploy%20ECS.drawio.png" alt="Ansible Semaphore ECS Architecture" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" /><div class="card-cover-placeholder" style="display:none; background:linear-gradient(135deg,#0a2818,#1a3828);">⚙️</div>
-        <div class="card-body">
-          <span class="card-domain domain-cloud">DevOps · Platform Engineering</span>
-          <h3><a href="https://github.com/AnselmeG300/deploy-semaphore-ecs" target="_blank">Ansible Semaphore — Plateforme interne d’automatisation des opérations IT (DevOps / Platform Engineering)</a></h3>
-          <p class="card-desc">Plateforme interne self-service (Semaphore UI) déployée sur AWS ECS Fargate avec Terraform & GitHub Actions. Architecture HA : ALB, Auto Scaling, MySQL conteneurisé, accès SSH restreint.</p>
-          <div class="card-tags"><span class="tag tag-purple">Ansible</span>
-<span class="tag tag-orange">AWS ECS Fargate</span>
-<span class="tag tag-purple">Terraform</span>
-<span class="tag tag-green">GitHub Actions</span>
-<span class="tag tag-orange">ALB</span>
-<span class="tag tag-blue">Docker</span>
-<span class="tag tag-red">MySQL</span>
-<span class="tag tag-green">GitHub Projects &amp; Issues</span>
-</div>
-          <div class="card-footer">
-            <a class="btn-github" href="https://github.com/AnselmeG300/deploy-semaphore-ecs" target="_blank"><svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg> Repo</a>
-            <a class="btn-github" href="https://ansible.eazytraining.fr" target="_blank" style="border-color:var(--accent2);color:var(--accent2);">🌐 Production</a>
-          </div>
-        </div>
-      </div>
+      
 
       <div class="project-card" data-pid="eks-webapp" data-domains="cloud containers microservices" data-tags="aws eks kubernetes web-app microservices">
         <div class="card-cover-placeholder" style="background:linear-gradient(135deg,#0a1a2e,#1a2a4e);">☸️</div>
@@ -934,45 +1010,9 @@
         </div>
       </div>
 
-      <div class="project-card" data-pid="eazyskills-catalog" data-domains="cicd" data-tags="yaml github-actions database platform">
-        <div class="card-cover-placeholder" style="background:linear-gradient(135deg,#1a1a0a,#3a3a1a);">📚</div>
-        <div class="card-body">
-          <span class="card-domain domain-cicd">CI/CD · EdTech</span>
-          <h3><a href="https://github.com/AnselmeG300/eazyskills-catalog" target="_blank">EazySkills Catalog — Données Plateforme</a></h3>
-          <p class="card-desc">Source de vérité pour EazySkills : cours, parcours, bootcamps en YAML. GitHub Actions pour validation et déploiement automatique en base.</p>
-          <div class="card-tags"><span class="tag tag-cyan">YAML</span>
-<span class="tag tag-green">GitHub Actions</span>
-<span class="tag tag-orange">Base de données</span>
-</div>
-          <div class="card-footer">
-            <a class="btn-github" href="https://github.com/AnselmeG300/eazyskills-catalog" target="_blank"><svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg> Repo</a>
-          </div>
-        </div>
-      </div>
+      
 
-      <div class="project-card" data-pid="pilotage-formations" data-domains="training management po microservices" data-tags="docker kubernetes ansible jenkins gitlab terraform aws python github-projects gitlab-project microsoft-teams management edtech github microservices">
-        <div class="card-cover"><img src="microsoft%20planner.png" alt="Pilotage formations" style="width:100%;height:100%;object-fit:cover;"></div>
-        <div class="card-body">
-          <span class="card-domain domain-training">Formation &middot; Management &middot; EdTech</span>
-          <h3>Pilotage de programmes de formation &ndash; Cloud, DevOps &amp; DevSecOps</h3>
-          <p class="card-desc">Pilotage d&rsquo;une &eacute;quipe de 4 personnes et coordination de formateurs externes pour EAZYTraining et ses partenaires (M2i, Data Scientest, SPARK, IForm). +180 apprenants form&eacute;s, +200 orientations professionnelles, 11 parcours d&eacute;ploy&eacute;s.</p>
-          <div class="card-tags">
-            <span class="tag tag-orange">AWS</span>
-            <span class="tag tag-blue">Docker</span>
-            <span class="tag tag-blue">Kubernetes</span>
-            <span class="tag tag-purple">Ansible</span>
-            <span class="tag tag-green">Jenkins</span>
-            <span class="tag tag-cyan">GitLab</span>
-            <span class="tag tag-purple">Terraform</span>
-            <span class="tag tag-red">Python</span>
-            <span class="tag tag-green">GitHub Projects</span>
-            <span class="tag tag-cyan">GitLab Project</span>
-            <span class="tag tag-green">GitHub</span>
-            <span class="tag tag-pink">Product Owner</span>
-          </div>
-          <div class="card-footer"></div>
-        </div>
-      </div>
+      
 
       <div class="project-card" data-pid="aws-module" data-domains="training cloud" data-tags="aws ec2 s3 vpc iam elastic-beanstalk">
         <div class="card-cover-placeholder" style="background:linear-gradient(135deg,#2a1a0a,#4a3a1a);">🎓</div>
@@ -1373,7 +1413,7 @@ const PROJECTS={
           prod: "https://acma.pythonanywhere.com"
         },
     'clinic-manager-vision': {
-      title: "Application de gestion des patients – Clinique La Vision (Santé / e-santé)",
+      title: "Développement d’une application de gestion des patients – Clinique La Vision (Santé / e-santé)",
       contexte: "Dans le cadre d’une mission réalisée chez Qualisys Consulting pour la Clinique La Vision, l’objectif était de concevoir une application permettant de digitaliser la gestion des patients et des activités médicales. La clinique avait besoin d’une solution centralisée pour gérer les informations des patients, les consultations, les traitements, ainsi que le suivi du personnel soignant et des hospitalisations. À terme, cette solution devait servir de base pour l’intégration de fonctionnalités d’intelligence artificielle.",
       role: [
         "Développeur Back-end & Tech Lead",
